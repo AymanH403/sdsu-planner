@@ -1,0 +1,3054 @@
+[
+  {
+    "code": "ACCTG 201",
+    "title": "- Financial Accounting Fundamentals",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79843",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting"
+    ]
+  },
+  {
+    "code": "ACCTG 202",
+    "title": "- Managerial Accounting Fundamentals",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79844",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting"
+    ]
+  },
+  {
+    "code": "ACCTG 296",
+    "title": "- Experimental Topics",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79845",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 325",
+    "title": "- Intermediate Managerial and Tax Accounting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79846",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 326",
+    "title": "- Intermediate Financial Accounting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79847",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 331",
+    "title": "- Intermediate Accounting I",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79826",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 332",
+    "title": "- Federal Income Taxation",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79848",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 333",
+    "title": "- Accounting Information Systems",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79849",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 334",
+    "title": "- Intermediate Accounting II",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79850",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 390W",
+    "title": "- Reporting Techniques for Accountants",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79851",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 409",
+    "title": "- Field Study in Taxation",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79852",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 431",
+    "title": "- Auditing",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79853",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 432",
+    "title": "- Cost Management",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79854",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 496",
+    "title": "- Selected Topics in Accountancy",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79855",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 498",
+    "title": "- Investigation and Report",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79856",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 499",
+    "title": "- Special Study",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79857",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 501",
+    "title": "- Advanced Financial Accounting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79858",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 503",
+    "title": "- Federal Taxation of Individuals",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79859",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 505",
+    "title": "- Fraud Examination",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79860",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 508",
+    "title": "- Accounting for Not-For-Profit Organizations",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79861",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 522",
+    "title": "- International Financial Reporting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79862",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 530",
+    "title": "- Ethics in Accounting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83031",
+    "aliases": [],
+    "eligible_buckets": [
+      "ethics",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 596",
+    "title": "- Contemporary Topics in Accounting",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79863",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 620",
+    "title": "- Financial Measurement and Reporting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83026",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 621",
+    "title": "- Accounting Information Systems",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83027",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 624",
+    "title": "- Business Entity Taxation",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83028",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 625",
+    "title": "- Managerial Analysis and Financial Reporting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83029",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 626",
+    "title": "- Auditing and Assurance Services",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83030",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 650",
+    "title": "- Accounting Research and Communication",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83032",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 651",
+    "title": "- Seminar in Corporate Tax",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83033",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 654",
+    "title": "- Seminar in Partnership Taxation",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83034",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 655",
+    "title": "- Tax Planning for Individuals",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83035",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 656",
+    "title": "- Multijurisdictional Tax",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83036",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 657",
+    "title": "- Accounting for Income Taxes",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83037",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 659",
+    "title": "- Seminar in Taxation Topics",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83038",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 661",
+    "title": "- Seminar in International Accounting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83040",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 663",
+    "title": "- Financial Statement Analysis",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83041",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 670",
+    "title": "- Seminar in Assurance Services",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83042",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 673",
+    "title": "- Accounting Information Systems (AIS) Development",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83043",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 675",
+    "title": "- Seminar in Accounting Information Systems Audit and Control",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83044",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 677",
+    "title": "- Data Analytics for Accounting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=88023",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 680",
+    "title": "- Seminar in Managerial Accounting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83045",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 696",
+    "title": "- Seminar in Selected Topics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83047",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 705",
+    "title": "- Forensic Accounting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84952",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 729",
+    "title": "- Seminar in Current Issues in Accounting and Auditing",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83048",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 790",
+    "title": "- Analytics in Accounting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83049",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 797",
+    "title": "- Research",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83050",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ACCTG 798",
+    "title": "- Special Study",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83051",
+    "aliases": [],
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  {
+    "code": "ECON 101",
+    "title": "- Principles of Economics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80755",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 102",
+    "title": "- Principles of Economics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80756",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 201",
+    "title": "- Statistical Methods",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80757",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 296",
+    "title": "- Experimental Topics",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80758",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 301",
+    "title": "- Introduction to Applied Econometrics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80759",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 311",
+    "title": "- History of Economic Thought",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80760",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 320",
+    "title": "- Intermediate Macroeconomic Theory",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80761",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 321",
+    "title": "- Intermediate Microeconomic Theory",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80762",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 330",
+    "title": "- Comparative Economic Systems",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80763",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 338",
+    "title": "- Economic History of the United States",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80764",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 349",
+    "title": "- Economics for Teachers",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80765",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 360",
+    "title": "- International Economic Problems",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80766",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 365",
+    "title": "- Economics of Underdeveloped Areas",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80767",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 380",
+    "title": "- Labor Economics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80768",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 381",
+    "title": "- Economics of Immigration",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80769",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 382",
+    "title": "- Economics of Work, Marriage, and Family",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80770",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 401",
+    "title": "- Public Finance",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80771",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 403",
+    "title": "- Health Economics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80772",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 404",
+    "title": "- Economic Inequality",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84968",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 406",
+    "title": "- Economics of Sports",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80773",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 422",
+    "title": "- Business Cycles",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80774",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 441",
+    "title": "- Introduction to Econometrics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80775",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 449W",
+    "title": "- Economic Literacy",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80776",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 455",
+    "title": "- Environmental Economics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80777",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 456",
+    "title": "- Economics of Natural Resources",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80778",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 460",
+    "title": "- Economics of Financial Crises",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80779",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 463",
+    "title": "- Economic Development Before 1900",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80780",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 464",
+    "title": "- Economic Problems of Latin America",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80781",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 466",
+    "title": "- Economics of the Middle East",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80782",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 485",
+    "title": "- Law and Economics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80783",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 487",
+    "title": "- Economics of Strategy",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80784",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 490",
+    "title": "- Money and Banking",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80786",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 495",
+    "title": "- Economics Internship",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80787",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 496",
+    "title": "- Experimental Topics",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80788",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 499",
+    "title": "- Special Study",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80789",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 507",
+    "title": "- Mathematical Economics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80790",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 561",
+    "title": "- International Trade",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80791",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 592",
+    "title": "- International Monetary Theory and Policy",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80792",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 596",
+    "title": "- Experimental Topics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=80793",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 630",
+    "title": "- Microeconomic Theory",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83258",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 631",
+    "title": "- Applied Microeconomic Methods",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83259",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 640",
+    "title": "- Econometrics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83260",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 641",
+    "title": "- Applied Research in Econometrics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83262",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 650",
+    "title": "- Statistical Tools for Economics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84784",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 696",
+    "title": "- Experimental Topics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83264",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 700",
+    "title": "- Seminar in Microeconomic Applications",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83265",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 710",
+    "title": "- Seminar in Public Economics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83266",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 730",
+    "title": "- Seminar in Macroeconomic Policy",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83268",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 740",
+    "title": "- Seminar in Applied Economic Research",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83269",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 795",
+    "title": "- Internship in Economics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83271",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 797",
+    "title": "- Research",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83272",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 798",
+    "title": "- Special Study",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83273",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 799A",
+    "title": "- Thesis",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83274",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "ECON 799B",
+    "title": "- Thesis Extension",
+    "units": 0.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83275",
+    "aliases": [],
+    "eligible_buckets": []
+  },
+  {
+    "code": "ECON 799C",
+    "title": "- Comprehensive Examination Extension",
+    "units": 0.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83276",
+    "aliases": [],
+    "eligible_buckets": []
+  },
+  {
+    "code": "FIN 240",
+    "title": "- Legal Environment of Business",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81030",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 250",
+    "title": "- Financial Literacy",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81031",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 296",
+    "title": "- Experimental Topics",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81032",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 321",
+    "title": "- Managerial Economics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81033",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 325",
+    "title": "- Intermediate Finance",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81034",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 326",
+    "title": "- Financial Institutions Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81035",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 327",
+    "title": "- Investments",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81036",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 328",
+    "title": "- Entrepreneurial Finance",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81037",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 329",
+    "title": "- International Business Finance",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81038",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 331",
+    "title": "- Real Estate Principles",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81039",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 333",
+    "title": "- Law of Real Property",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81040",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 334",
+    "title": "- Principles of Risk Management and Insurance",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84875",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 335",
+    "title": "- Financial Modeling",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84722",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 336",
+    "title": "- Principles of Residential Property Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84594",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 421",
+    "title": "- Portfolio Management and Security Analysis",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81041",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 422",
+    "title": "- Property-Liability Insurance",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84723",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 423",
+    "title": "- Financial Analysis and Management",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81042",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 427",
+    "title": "- Derivatives and Financial Risk Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81043",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 431",
+    "title": "- Real Estate Finance",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81044",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 433",
+    "title": "- Theory of Real Property Value",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81045",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 435",
+    "title": "- Real Estate Investment Analysis",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81046",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 436",
+    "title": "- Residential Property Management Practices and Issues",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84724",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 437",
+    "title": "- Real Estate Development",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81047",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 496",
+    "title": "- Selected Topics in Finance",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81048",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 498",
+    "title": "- Investigation and Report",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81049",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 499",
+    "title": "- Special Study",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81050",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 522",
+    "title": "- Individual Insurance Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81051",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 585",
+    "title": "- Estate Planning Issues and Practice",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81052",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 589",
+    "title": "- Personal Financial Planning",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81053",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 590",
+    "title": "- Personal Financial Planning Practicum",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81054",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 596",
+    "title": "- Contemporary Topics in Finance",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81055",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 617",
+    "title": "- Financial Management II",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83053",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 642",
+    "title": "- Financial Risk Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83055",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 651",
+    "title": "- Seminar in Investments",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83056",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 652",
+    "title": "- Seminar in Security Analysis and Portfolio Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83057",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 653",
+    "title": "- Case Studies in Financial Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83058",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 654",
+    "title": "- Seminar in International Business Finance",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83059",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 657",
+    "title": "- Financial and Retirement Planning",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83061",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 659",
+    "title": "- Decision Making in the World Economy",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83062",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 696",
+    "title": "- Seminar in Selected Topics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83063",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 705",
+    "title": "- Seminar in Estate Planning",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83064",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 797",
+    "title": "- Research",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83066",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "FIN 798",
+    "title": "- Special Study",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83067",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 180",
+    "title": "- Principles of Information Systems",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81682",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 299",
+    "title": "- Special study",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81683",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 301",
+    "title": "- Statistical Analysis for Business",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=79830",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 305",
+    "title": "- Business Processes, ERP, and Analytics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81684",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 306",
+    "title": "- Information Systems Analysis and Design",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81685",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 315",
+    "title": "- Business Applications Programming",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81686",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 380",
+    "title": "- Data Management Systems",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81688",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 383",
+    "title": "- Networks and Data Communications",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84611",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 396W",
+    "title": "- Reporting Techniques for Business Professionals",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81689",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 401",
+    "title": "- Business Intelligence and Analytics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84612",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 406",
+    "title": "- Information Systems Design",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81690",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 420",
+    "title": "- Cloud Services, Architecture and Security",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=85087",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 425",
+    "title": "- Artificial Intelligence for Business Applications",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=88060",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 429",
+    "title": "- Contemporary Issues in Information Systems",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84729",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 455",
+    "title": "- Digital Entrepreneurship and Innovation",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84613",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 460",
+    "title": "- Project Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81691",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 481",
+    "title": "- E-Business/Web Development",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81692",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 495",
+    "title": "- Management Information Systems Internship",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84614",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 496",
+    "title": "- Selected Topics in Information Systems",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81696",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 498",
+    "title": "- Investigation and Report",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81697",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 499",
+    "title": "- Special Study",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81698",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 515",
+    "title": "- Programming for Data-Driven Applications",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81699",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 585",
+    "title": "- Fundamentals of Cybersecurity Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81700",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 596",
+    "title": "- Contemporary Topics in Management Information Systems",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81701",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 649",
+    "title": "- Business Analytics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83098",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 680",
+    "title": "- Information Systems Hardware and Software",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83087",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 686",
+    "title": "- Enterprise Database Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83088",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 687",
+    "title": "- Secure Enterprise Networking and Mobile Technologies",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83089",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 690",
+    "title": "- Cloud Computing: Fundamentals, Architecture and Security",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=85050",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 691",
+    "title": "- Decision Support Systems",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83091",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 695",
+    "title": "- Business Systems Analysis and Design",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83092",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 696",
+    "title": "- Seminar in Selected Topics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83093",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 697",
+    "title": "- Project Planning and Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83094",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 705",
+    "title": "- Communication Strategies",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83095",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 720",
+    "title": "- AI and Big Data",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83086",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 727",
+    "title": "- Seminar in Scientific Method",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84655",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 744",
+    "title": "- Supply Chain Resilience",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83096",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 748",
+    "title": "- Time Series Analysis for Business Forecasting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83097",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 750",
+    "title": "- Strategic Program Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83099",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 752",
+    "title": "- Enterprise Resource Planning and Blockchain",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83100",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 753",
+    "title": "- Global Supply Chain Analytics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83101",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 754",
+    "title": "- Sustainable Sourcing and Logistics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83102",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 755",
+    "title": "- Information Systems Security Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83103",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 760",
+    "title": "- AI/Machine Learning for Cyber Intelligence and Defense",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=85051",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 790",
+    "title": "- Culminating Experience in Management Information Systems",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83104",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 797",
+    "title": "- Research",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83105",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MIS 798",
+    "title": "- Special Study",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83106",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 305",
+    "title": "- Professional Development in Marketing",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=88111",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 306",
+    "title": "- Marketing and Sales Micro-internship",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=88112",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 371",
+    "title": "- Consumer Behavior",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81702",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 372",
+    "title": "- Retail Marketing Methods",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81703",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 373",
+    "title": "- Integrated Marketing Communications",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81704",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 376",
+    "title": "- Global Marketing Strategy",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81705",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 377",
+    "title": "- Selling Strategy and Practices",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81706",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 380",
+    "title": "- Direct Marketing Methods",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81707",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 381",
+    "title": "- Introduction to Business Tools for Data Analysis and Visualization",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84730",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 402",
+    "title": "- Marketing and Sales Internship",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84685",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 470",
+    "title": "- Marketing Research",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81708",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 473",
+    "title": "- Sales Management",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81710",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 474",
+    "title": "- Business Marketing",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81711",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 476",
+    "title": "- Internet/Interactive Marketing",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81712",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 477",
+    "title": "- Sustainable Marketing",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=88087",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 478",
+    "title": "- Marketing and Sales for Social Impact",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84615",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 480",
+    "title": "- Marketing Analytics",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81714",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 492",
+    "title": "- Advanced Integrated Marketing Communications",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=88129",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 494",
+    "title": "- Advanced Strategic Marketing",
+    "units": 4.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=88128",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 496",
+    "title": "- Selected Topics in Marketing",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81715",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 498",
+    "title": "- Investigation and Report",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81716",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 499",
+    "title": "- Special Study",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81717",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 515",
+    "title": "- Cause Selling and Fundraising",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84738",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 696",
+    "title": "- Seminar in Selected Topics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83107",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 729",
+    "title": "- Contemporary Issues in Marketing Theory and Practice",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83108",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 761",
+    "title": "- Product Innovation Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83109",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 762",
+    "title": "- Seminar in Integrated Marketing Communication",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83110",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 763",
+    "title": "- Seminar in Sales Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83111",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 767",
+    "title": "- Sales and Marketing Analytics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83113",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 768",
+    "title": "- Seminar in Internet Marketing and E-Business",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83114",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 769",
+    "title": "- Seminar in International Marketing",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83115",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 772",
+    "title": "- Strategic Brand Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83116",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 779",
+    "title": "- Advanced Marketing Strategy",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83117",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 797",
+    "title": "- Research",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83119",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "MKTG 798",
+    "title": "- Special Study",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83120",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 119",
+    "title": "- Elementary Statistics for Business",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82656",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 119A",
+    "title": "- Recitation for Elementary Business Statistics",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82657",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 119X",
+    "title": "- Elementary Statistics Support",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82658",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 200",
+    "title": "- Introduction to Data Science with R",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84645",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 250",
+    "title": "- Statistical Principles and Practices",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82659",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 296",
+    "title": "- Experimental Topics",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82660",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 299",
+    "title": "- Special Study",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82661",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 325",
+    "title": "- SAS Programming and Data Management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82662",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 350A",
+    "title": "- Statistical Methods",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82663",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 350B",
+    "title": "- Statistical Methods",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82664",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 410",
+    "title": "- Statistical Programming in Data Science",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82665",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 420",
+    "title": "- Data curation and management",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=88097",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 496",
+    "title": "- Experimental Topics",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82666",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 499",
+    "title": "- Special Study",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82667",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 520",
+    "title": "- Applied Multivariate Analysis",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82668",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 550",
+    "title": "- Applied Probability",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82669",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 551A",
+    "title": "- Probability and Mathematical Statistics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82670",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 551B",
+    "title": "- Probability and Mathematical Statistics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82671",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 560",
+    "title": "- Sample Surveys",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82672",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 575",
+    "title": "- Actuarial Modeling",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82674",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 580",
+    "title": "- Statistical Computing",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82675",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 585",
+    "title": "- Statistical Machine Learning",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=85117",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 596",
+    "title": "- Advanced Topics in Statistics",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=82676",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 610",
+    "title": "- Linear Regression Models",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84480",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 670A",
+    "title": "- Advanced Mathematical Statistics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84481",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 670B",
+    "title": "- Advanced Mathematical Statistics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84482",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 672",
+    "title": "- Nonparametric Statistics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84483",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 673",
+    "title": "- Time Series Analysis",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84484",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 676",
+    "title": "- Bayesian Statistics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84485",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 677",
+    "title": "- Design of Experiments",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84486",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 678",
+    "title": "- Survival Analysis",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84487",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 680A",
+    "title": "- Advanced Biostatistical Methods",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84488",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 680B",
+    "title": "- Advanced Biostatistical Methods",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84489",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 696",
+    "title": "- Selected Topics in Statistics",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84490",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 700",
+    "title": "- Data Analysis Methods",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84491",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 701",
+    "title": "- Monte Carlo Statistical Methods",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84492",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 702",
+    "title": "- Data Mining Statistical Methods",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84493",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 703",
+    "title": "- Deep Neural Networks for Statisticians",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=85177",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 720",
+    "title": "- Seminar",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84494",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 794",
+    "title": "- Statistical Communication in Data Science",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84677",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 795",
+    "title": "- Practicum in Statistical Consulting",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84496",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 797",
+    "title": "- Research",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84497",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 798",
+    "title": "- Special Study",
+    "units": 1.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84498",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 799A",
+    "title": "- Thesis or Project",
+    "units": 3.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84499",
+    "aliases": [],
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  {
+    "code": "STAT 799B",
+    "title": "- Thesis Extension",
+    "units": 0.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84500",
+    "aliases": [],
+    "eligible_buckets": []
+  },
+  {
+    "code": "STAT 799C",
+    "title": "- Comprehensive Examination Extension",
+    "units": 0.0,
+    "status": "active",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84501",
+    "aliases": [],
+    "eligible_buckets": []
+  }
+]

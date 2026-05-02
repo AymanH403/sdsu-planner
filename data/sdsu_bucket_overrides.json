@@ -1,0 +1,1410 @@
+{
+  "ACCTG 201": {
+    "eligible_buckets": [
+      "accounting"
+    ]
+  },
+  "ACCTG 202": {
+    "eligible_buckets": [
+      "accounting"
+    ]
+  },
+  "ACCTG 296": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 325": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 326": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 331": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 332": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 333": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 334": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 390W": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 409": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 431": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 432": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 496": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 498": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 499": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 501": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 503": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 505": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 508": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 522": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 530": {
+    "eligible_buckets": [
+      "ethics",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 596": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 620": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 621": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 624": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 625": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 626": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 650": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 651": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 654": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 655": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 656": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 657": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 659": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 661": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 663": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 670": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 673": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 675": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 677": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 680": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 696": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 705": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 729": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 790": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 797": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ACCTG 798": {
+    "eligible_buckets": [
+      "accounting",
+      "accounting_study"
+    ]
+  },
+  "ECON 101": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 102": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 201": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 296": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 301": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 311": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 320": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 321": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 330": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 338": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 349": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 360": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 365": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 380": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 381": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 382": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 401": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 403": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 404": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 406": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 422": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 441": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 449W": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 455": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 456": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 460": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 463": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 464": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 466": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 485": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 487": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 490": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 495": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 496": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 499": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 507": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 561": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 592": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 596": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 630": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 631": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 640": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 641": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 650": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 696": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 700": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 710": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 730": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 740": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 795": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 797": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 798": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 799A": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "ECON 799B": {
+    "eligible_buckets": []
+  },
+  "ECON 799C": {
+    "eligible_buckets": []
+  },
+  "FIN 240": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 250": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 296": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 321": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 325": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 326": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 327": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 328": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 329": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 331": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 333": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 334": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 335": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 336": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 421": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 422": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 423": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 427": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 431": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 433": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 435": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 436": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 437": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 496": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 498": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 499": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 522": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 585": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 589": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 590": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 596": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 617": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 642": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 651": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 652": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 653": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 654": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 657": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 659": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 696": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 705": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 797": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "FIN 798": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 180": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 299": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 301": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 305": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 306": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 315": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 380": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 383": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 396W": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 401": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 406": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 420": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 425": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 429": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 455": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 460": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 481": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 495": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 496": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 498": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 499": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 515": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 585": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 596": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 649": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 680": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 686": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 687": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 690": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 691": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 695": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 696": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 697": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 705": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 720": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 727": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 744": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 748": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 750": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 752": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 753": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 754": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 755": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 760": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 790": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 797": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MIS 798": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 305": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 306": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 371": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 372": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 373": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 376": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 377": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 380": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 381": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 402": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 470": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 473": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 474": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 476": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 477": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 478": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 480": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 492": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 494": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 496": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 498": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 499": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 515": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 696": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 729": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 761": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 762": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 763": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 767": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 768": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 769": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 772": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 779": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 797": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "MKTG 798": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 119": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 119A": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 119X": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 200": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 250": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 296": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 299": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 325": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 350A": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 350B": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 410": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 420": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 496": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 499": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 520": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 550": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 551A": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 551B": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 560": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 575": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 580": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 585": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 596": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 610": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 670A": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 670B": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 672": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 673": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 676": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 677": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 678": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 680A": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 680B": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 696": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 700": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 701": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 702": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 703": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 720": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 794": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 795": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 797": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 798": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 799A": {
+    "eligible_buckets": [
+      "business"
+    ]
+  },
+  "STAT 799B": {
+    "eligible_buckets": []
+  },
+  "STAT 799C": {
+    "eligible_buckets": []
+  }
+}

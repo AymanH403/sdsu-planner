@@ -1,0 +1,26 @@
+[
+  {
+    "code": "A E 621",
+    "prefix": "A E",
+    "number": "621",
+    "title": "Theory of Elasticity",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=83609",
+    "reason": "Could not parse units from compact index or detail page."
+  },
+  {
+    "code": "MUSIC 186",
+    "prefix": "MUSIC",
+    "number": "186",
+    "title": "SDSU Chamber Choir",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=81843",
+    "reason": "Could not parse units from compact index or detail page."
+  },
+  {
+    "code": "PSY 740",
+    "prefix": "PSY",
+    "number": "740",
+    "title": "Seminar in Social Psychology",
+    "source_url": "https://catalog.sdsu.edu/preview_course_nopop.php?catoid=11&coid=84176",
+    "reason": "Could not parse units from compact index or detail page."
+  }
+]

@@ -1,6 +1,6 @@
 import type { PlanSnapshot } from "./types";
 
-const STORAGE_KEY = "sdsu-planner-v1";
+const STORAGE_KEY = "sdsu-planner-auto-audit-v1";
 
 export function savePlanToStorage(snapshot: PlanSnapshot) {
   if (typeof window === "undefined") return;
@@ -9,6 +9,7 @@ export function savePlanToStorage(snapshot: PlanSnapshot) {
 
 export function loadPlanFromStorage(): PlanSnapshot | null {
   if (typeof window === "undefined") return null;
+
   const raw = window.localStorage.getItem(STORAGE_KEY);
   if (!raw) return null;
 

@@ -46,4 +46,4 @@ export const RULESETS: Record<RulesetId, Ruleset> = {
   },
 };
 
-export const DEFAULT_RULESET_ID: RulesetId = "CA_EXAM_LEGACY_2026";
+export const DEFAULT_RULESET_ID: RulesetId = "CA_2027_PLUS";

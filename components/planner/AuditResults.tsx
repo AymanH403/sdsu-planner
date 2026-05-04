@@ -49,7 +49,7 @@ export function AuditResults({ audit }: Props) {
           </div>
         </div>
 
-        <div className="mt-6 space-y-5">
+        <div className="mt-7 space-y-7">
           <ProgressBar
             label="Total Units"
             current={audit.totalUnits}
@@ -82,6 +82,25 @@ export function AuditResults({ audit }: Props) {
               <div key={warning}>{warning}</div>
             ))}
           </div>
+
+          {audit.reviewCourses.length > 0 && (
+            <div className="mt-4 rounded-2xl border border-amber-300/20 bg-black/20 p-3">
+              <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-amber-200">
+                Needs review
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {audit.reviewCourses.map((course) => (
+                  <span
+                    key={course.id}
+                    title={course.reviewReason}
+                    className="rounded-full bg-amber-300 px-3 py-1 text-xs font-semibold text-black"
+                  >
+                    {course.code}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
 
@@ -198,12 +217,12 @@ function ProgressBar({
         <span className="font-medium text-zinc-200">{label}</span>
       </div>
 
-      <div className="relative h-8 overflow-hidden rounded-full bg-white/10">
+      <div className="relative h-12 overflow-hidden rounded-2xl bg-white/10">
         <div
-          className={`absolute inset-y-0 left-0 rounded-full transition-all ${color}`}
+          className={`absolute inset-y-0 left-0 rounded-2xl transition-all ${color}`}
           style={{ width: barWidth(percent) }}
         />
-        <div className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-white mix-blend-difference">
+        <div className="absolute inset-0 flex items-center justify-center text-xl font-black tracking-tight text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
           {current} / {target}
         </div>
       </div>

@@ -47,7 +47,7 @@ export function AddedCourses({ entries, audit, onRemoveEntry, onUpdateUnits }: P
             Added Courses
           </h2>
           <p className="mt-1 text-sm text-zinc-400">
-            Course cards show current assignment, units, and title.
+            Course cards show current assignment, units, and review status.
           </p>
         </div>
 
@@ -92,16 +92,25 @@ export function AddedCourses({ entries, audit, onRemoveEntry, onUpdateUnits }: P
 
                 <div className="mt-6 space-y-3">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-black/40 px-4 py-1.5 text-sm font-medium text-zinc-200">
-                    {entry.units} units
-                  </span>
+                    <span className="rounded-full border border-white/10 bg-black/40 px-4 py-1.5 text-sm font-medium text-zinc-200">
+                      {entry.units} units
+                    </span>
 
-                      <span className={`rounded-full px-4 py-1.5 text-sm font-semibold ${bucketClass(bucket)}`}>
+                    <span className={`rounded-full px-4 py-1.5 text-sm font-semibold ${bucketClass(bucket)}`}>
                       {bucket.replace("_", " ")}
                     </span>
 
+                    {entry.needsReview && (
+                      <span
+                        title={entry.reviewReason}
+                        className="rounded-full bg-amber-300 px-4 py-1.5 text-sm font-semibold text-black"
+                      >
+                        review
+                      </span>
+                    )}
+
                     {entry.manualBucketOverride && (
-                      <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-zinc-300">
+                      <span className="rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-zinc-300">
                         manual
                       </span>
                     )}

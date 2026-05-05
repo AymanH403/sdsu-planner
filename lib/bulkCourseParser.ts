@@ -1,8 +1,19 @@
 import type { CourseRecord } from "./types";
+import {
+  compactCourseCode,
+  findCourseByFlexibleCode,
+  suggestCourseByFlexibleCode,
+} from "./courses";
+
+export type BulkSuggestion = {
+  input: string;
+  suggestedCourse: CourseRecord;
+};
 
 export type BulkParseResult = {
   matched: CourseRecord[];
   unmatched: string[];
+  suggestions: BulkSuggestion[];
 };
 
 function normalizeCourseCode(input: string) {
@@ -17,50 +28,39 @@ export function parseBulkCourseInput(
   input: string,
   catalog: CourseRecord[],
 ): BulkParseResult {
-  const catalogByCode = new Map(
-    catalog.map((course) => [course.code.toUpperCase(), course]),
-  );
-
   const rawLines = input
     .split(/\n|;/)
     .map((line) => normalizeCourseCode(line))
     .filter(Boolean);
 
-  const found: CourseRecord[] = [];
+  const matched: CourseRecord[] = [];
   const unmatched: string[] = [];
+  const suggestions: BulkSuggestion[] = [];
   const seen = new Set<string>();
 
   for (const line of rawLines) {
-    const direct = catalogByCode.get(line);
+    const exact = findCourseByFlexibleCode(catalog, line);
 
-    if (direct) {
-      if (!seen.has(direct.code)) {
-        found.push(direct);
-        seen.add(direct.code);
+    if (exact) {
+      if (!seen.has(exact.code)) {
+        matched.push(exact);
+        seen.add(exact.code);
       }
       continue;
     }
 
-    const looseMatch = line.match(/^([A-Z&]+(?:\s+[A-Z&]+){0,2})\s*(\d{2,3}[A-Z]{0,3})$/);
+    const suggestion = suggestCourseByFlexibleCode(catalog, line);
 
-    if (looseMatch) {
-      const prefix = looseMatch[1].replace(/\s+/g, " ").trim();
-      const number = looseMatch[2].trim();
-      const normalizedCode = `${prefix} ${number}`;
-
-      const course = catalogByCode.get(normalizedCode);
-
-      if (course) {
-        if (!seen.has(course.code)) {
-          found.push(course);
-          seen.add(course.code);
-        }
-        continue;
-      }
+    if (suggestion && compactCourseCode(suggestion.code).slice(0, 4) === compactCourseCode(line).slice(0, 4)) {
+      suggestions.push({
+        input: line,
+        suggestedCourse: suggestion,
+      });
+      continue;
     }
 
     unmatched.push(line);
   }
 
-  return { matched: found, unmatched };
+  return { matched, unmatched, suggestions };
 }

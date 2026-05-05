@@ -1,11 +1,19 @@
 import type { CourseRecord } from "./types";
 import { parseBulkCourseInput } from "./bulkCourseParser";
 
+export type TranscriptParsedTerm = {
+  id: string;
+  name: string;
+  courseCodes: string[];
+};
+
 export type TranscriptParseResult = {
   rawText: string;
   matched: CourseRecord[];
   unmatched: string[];
   extractedCodes: string[];
+  terms: TranscriptParsedTerm[];
+  courseTermMap: Record<string, string>;
 };
 
 export async function extractTextFromPdf(file: File): Promise<string> {
@@ -53,10 +61,6 @@ function cleanTranscriptText(text: string) {
 }
 
 function prefixToRegex(prefix: string) {
-  // "B A" becomes "B\s*A", allowing transcript text like:
-  // B A 671
-  // BA 671
-  // B    A    671
   return prefix
     .trim()
     .split(/\s+/)
@@ -64,10 +68,31 @@ function prefixToRegex(prefix: string) {
     .join("\\s*");
 }
 
-export function extractPossibleCourseCodes(
-  text: string,
-  catalog: CourseRecord[],
-): string[] {
+function normalizeTermName(raw: string) {
+  return raw
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/\b(\d{4})\s+(FALL|SPRING|SUMMER|WINTER)\b/i, "$2 $1")
+    .toUpperCase();
+}
+
+function termIdFromName(name: string) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
+function findTermHeaders(text: string) {
+  const normalized = text.toUpperCase().replace(/\s+/g, " ");
+
+  const termPattern =
+    /\b((FALL|SPRING|SUMMER|WINTER)\s+\d{4}|\d{4}\s+(FALL|SPRING|SUMMER|WINTER))\b/g;
+
+  return [...normalized.matchAll(termPattern)].map((match) => ({
+    index: match.index ?? 0,
+    name: normalizeTermName(match[1]),
+  }));
+}
+
+function extractCodesFromText(text: string, catalog: CourseRecord[]) {
   const cleaned = cleanTranscriptText(text);
 
   const prefixes = Array.from(
@@ -93,18 +118,74 @@ export function extractPossibleCourseCodes(
   return [...found];
 }
 
+export function extractTranscriptTerms(
+  text: string,
+  catalog: CourseRecord[],
+): {
+  extractedCodes: string[];
+  terms: TranscriptParsedTerm[];
+  courseTermMap: Record<string, string>;
+} {
+  const clean = cleanTranscriptText(text);
+  const headers = findTermHeaders(clean);
+
+  if (headers.length === 0) {
+    const extractedCodes = extractCodesFromText(clean, catalog);
+    return {
+      extractedCodes,
+      terms: [],
+      courseTermMap: {},
+    };
+  }
+
+  const terms: TranscriptParsedTerm[] = [];
+  const courseTermMap: Record<string, string> = {};
+  const allCodes = new Set<string>();
+
+  for (let i = 0; i < headers.length; i++) {
+    const current = headers[i];
+    const next = headers[i + 1];
+
+    const chunk = clean.slice(current.index, next?.index ?? clean.length);
+    const codes = extractCodesFromText(chunk, catalog);
+
+    const id = termIdFromName(current.name);
+
+    if (codes.length > 0) {
+      terms.push({
+        id,
+        name: current.name,
+        courseCodes: codes,
+      });
+
+      for (const code of codes) {
+        allCodes.add(code);
+        courseTermMap[code] = id;
+      }
+    }
+  }
+
+  return {
+    extractedCodes: [...allCodes],
+    terms,
+    courseTermMap,
+  };
+}
+
 export async function parseTranscriptPdf(
   file: File,
   catalog: CourseRecord[],
 ): Promise<TranscriptParseResult> {
   const rawText = await extractTextFromPdf(file);
-  const extractedCodes = extractPossibleCourseCodes(rawText, catalog);
-  const parsed = parseBulkCourseInput(extractedCodes.join("\n"), catalog);
+  const extracted = extractTranscriptTerms(rawText, catalog);
+  const parsed = parseBulkCourseInput(extracted.extractedCodes.join("\n"), catalog);
 
   return {
     rawText,
-    extractedCodes,
+    extractedCodes: extracted.extractedCodes,
     matched: parsed.matched,
     unmatched: parsed.unmatched,
+    terms: extracted.terms,
+    courseTermMap: extracted.courseTermMap,
   };
 }

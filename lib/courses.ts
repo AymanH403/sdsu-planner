@@ -4,6 +4,12 @@ export function normalize(text: string) {
   return text.toLowerCase().trim();
 }
 
+export function compactCourseCode(text: string) {
+  return text
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, "");
+}
+
 export function normalizeCourses(raw: RawCourse[]): CourseRecord[] {
   return raw
     .map((course) => {
@@ -33,12 +39,67 @@ export function normalizeCourses(raw: RawCourse[]): CourseRecord[] {
     .filter((course) => course.code && course.title && course.units >= 0);
 }
 
+export function findCourseByFlexibleCode(
+  catalog: CourseRecord[],
+  input: string,
+): CourseRecord | null {
+  const compactInput = compactCourseCode(input);
+  if (!compactInput) return null;
+
+  return (
+    catalog.find((course) => compactCourseCode(course.code) === compactInput) ??
+    null
+  );
+}
+
+export function suggestCourseByFlexibleCode(
+  catalog: CourseRecord[],
+  input: string,
+): CourseRecord | null {
+  const compactInput = compactCourseCode(input);
+  if (compactInput.length < 4) return null;
+
+  const candidates = catalog
+    .map((course) => {
+      const compactCode = compactCourseCode(course.code);
+
+      let score = 0;
+
+      if (compactCode === compactInput) score += 100;
+      if (compactCode.startsWith(compactInput)) score += 70;
+      if (compactInput.startsWith(compactCode)) score += 60;
+
+      const sharedPrefixLength = commonPrefixLength(compactCode, compactInput);
+      score += sharedPrefixLength * 5;
+
+      return { course, score };
+    })
+    .filter((item) => item.score >= 40)
+    .sort((a, b) => b.score - a.score);
+
+  return candidates[0]?.course ?? null;
+}
+
+function commonPrefixLength(a: string, b: string) {
+  let count = 0;
+  const max = Math.min(a.length, b.length);
+
+  for (let i = 0; i < max; i++) {
+    if (a[i] !== b[i]) break;
+    count++;
+  }
+
+  return count;
+}
+
 export function matchSdsuCourses(
   courses: CourseRecord[],
   query: string,
   showRetired: boolean,
 ) {
   const q = normalize(query);
+  const compactQ = compactCourseCode(query);
+
   if (!q) return [];
 
   return courses
@@ -55,7 +116,13 @@ export function matchSdsuCourses(
         .join(" ")
         .toLowerCase();
 
-      return haystack.includes(q);
+      const compactCode = compactCourseCode(course.code);
+
+      return (
+        haystack.includes(q) ||
+        compactCode.includes(compactQ) ||
+        compactCode.startsWith(compactQ)
+      );
     })
     .slice(0, 30);
 }

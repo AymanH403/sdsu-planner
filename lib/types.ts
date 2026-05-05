@@ -46,9 +46,15 @@ export type CandidateBucket = {
   reason: string;
 };
 
+export type PlannerTerm = {
+  id: string;
+  name: string;
+  sortOrder: number;
+};
+
 export type PlannerEntry = {
   id: string;
-  sourceType: "sdsu" | "transfer" | "manual";
+  sourceType: "sdsu" | "transfer" | "manual" | "transcript";
   code: string;
   prefix: string;
   number: string;
@@ -62,6 +68,7 @@ export type PlannerEntry = {
   needsReview: boolean;
   reviewReason?: string;
   manualBucketOverride?: RequirementBucket;
+  termId?: string;
 };
 
 export type Allocation = {
@@ -98,6 +105,9 @@ export type AuditResult = {
 };
 
 export type PlanSnapshot = {
+  version: 2;
+  exportedAt?: string;
+  terms: PlannerTerm[];
   entries: PlannerEntry[];
   rulesetId: RulesetId;
 };

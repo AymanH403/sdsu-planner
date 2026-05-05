@@ -13,20 +13,41 @@ type Props = {
 
 export function BulkCourseAdd({ catalog, addedCourseCodes, onAddCourse }: Props) {
   const [text, setText] = useState("");
+  const [acceptedSuggestions, setAcceptedSuggestions] = useState<Set<string>>(new Set());
 
   const parsed = useMemo(
     () => parseBulkCourseInput(text, catalog),
     [text, catalog],
   );
 
-  const newMatches = parsed.matched.filter(
-    (course) => !addedCourseCodes.has(course.code),
+  const acceptedCourses = parsed.suggestions
+    .filter((suggestion) => acceptedSuggestions.has(suggestion.input))
+    .map((suggestion) => suggestion.suggestedCourse);
+
+  const allMatches = [...parsed.matched, ...acceptedCourses];
+
+  const newMatches = allMatches.filter(
+    (course, index, arr) =>
+      !addedCourseCodes.has(course.code) &&
+      arr.findIndex((c) => c.code === course.code) === index,
   );
 
   function addAll() {
     for (const course of newMatches) {
       onAddCourse(course);
     }
+  }
+
+  function acceptSuggestion(input: string) {
+    setAcceptedSuggestions((prev) => new Set([...prev, input]));
+  }
+
+  function rejectSuggestion(input: string) {
+    setAcceptedSuggestions((prev) => {
+      const next = new Set(prev);
+      next.delete(input);
+      return next;
+    });
   }
 
   return (
@@ -37,20 +58,23 @@ export function BulkCourseAdd({ catalog, addedCourseCodes, onAddCourse }: Props)
           Bulk Add Courses
         </h2>
         <p className="mt-1 text-sm text-zinc-400">
-          Paste course codes, one per line. Example: ACCTG 201, B A 323, FIN 240.
+          Paste course codes. Spacing is flexible, so ACCTG202 and BA673 can still match.
         </p>
       </div>
 
       <textarea
         value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder={`ACCTG 201\nACCTG 202\nB A 323\nFIN 240\nSTAT 119`}
+        onChange={(e) => {
+          setText(e.target.value);
+          setAcceptedSuggestions(new Set());
+        }}
+        placeholder={`ACCTG201\nACCTG202\nBA673\nFIN240\nSTAT119`}
         className="min-h-40 w-full rounded-3xl border border-white/10 bg-black p-4 text-sm text-white outline-none placeholder:text-zinc-700 focus:ring-2 focus:ring-white/20"
       />
 
       <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
         <div className="text-sm text-zinc-400">
-          {parsed.matched.length} matched · {parsed.unmatched.length} unmatched · {newMatches.length} new
+          {parsed.matched.length} matched · {parsed.suggestions.length} suggestions · {parsed.unmatched.length} unmatched · {newMatches.length} new
         </div>
 
         <button
@@ -67,6 +91,57 @@ export function BulkCourseAdd({ catalog, addedCourseCodes, onAddCourse }: Props)
           Add matched
         </button>
       </div>
+
+      {parsed.suggestions.length > 0 && (
+        <div className="mt-4 rounded-2xl border border-amber-300/30 bg-amber-300/10 p-4">
+          <div className="mb-3 text-sm font-semibold text-amber-200">
+            Confirm suggestions
+          </div>
+
+          <div className="space-y-3">
+            {parsed.suggestions.map((suggestion) => {
+              const accepted = acceptedSuggestions.has(suggestion.input);
+
+              return (
+                <div
+                  key={suggestion.input}
+                  className="flex flex-col justify-between gap-3 rounded-2xl bg-black/30 p-3 md:flex-row md:items-center"
+                >
+                  <div className="text-sm text-zinc-300">
+                    Did you mean{" "}
+                    <span className="font-semibold text-white">
+                      {suggestion.suggestedCourse.code}
+                    </span>{" "}
+                    — {suggestion.suggestedCourse.title} for{" "}
+                    <span className="text-amber-200">{suggestion.input}</span>?
+                  </div>
+
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => acceptSuggestion(suggestion.input)}
+                      className={[
+                        "rounded-xl px-3 py-1.5 text-xs font-semibold",
+                        accepted
+                          ? "bg-emerald-300 text-black"
+                          : "bg-white text-black",
+                      ].join(" ")}
+                    >
+                      {accepted ? "Accepted" : "Accept"}
+                    </button>
+
+                    <button
+                      onClick={() => rejectSuggestion(suggestion.input)}
+                      className="rounded-xl border border-white/10 px-3 py-1.5 text-xs text-zinc-300 hover:bg-white/10"
+                    >
+                      Reject
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {(parsed.matched.length > 0 || parsed.unmatched.length > 0) && (
         <div className="mt-4 grid gap-4 lg:grid-cols-2">

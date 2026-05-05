@@ -2,19 +2,27 @@
 
 import { useState } from "react";
 import { FileText, Plus } from "lucide-react";
-import { parseTranscriptPdf } from "@/lib/transcriptPdfParser";
+import { parseTranscriptPdf, type TranscriptParsedTerm } from "@/lib/transcriptPdfParser";
 import type { CourseRecord } from "@/lib/types";
 
 type Props = {
   catalog: CourseRecord[];
   addedCourseCodes: Set<string>;
-  onAddCourse: (course: CourseRecord) => void;
+  onAddCourse: (course: CourseRecord, termId?: string, sourceType?: "transcript") => void;
+  onImportTerms: (terms: TranscriptParsedTerm[]) => void;
 };
 
-export function TranscriptUpload({ catalog, addedCourseCodes, onAddCourse }: Props) {
+export function TranscriptUpload({
+  catalog,
+  addedCourseCodes,
+  onAddCourse,
+  onImportTerms,
+}: Props) {
   const [loading, setLoading] = useState(false);
   const [matched, setMatched] = useState<CourseRecord[]>([]);
   const [unmatched, setUnmatched] = useState<string[]>([]);
+  const [terms, setTerms] = useState<TranscriptParsedTerm[]>([]);
+  const [courseTermMap, setCourseTermMap] = useState<Record<string, string>>({});
   const [error, setError] = useState("");
 
   const newMatches = matched.filter((course) => !addedCourseCodes.has(course.code));
@@ -26,11 +34,15 @@ export function TranscriptUpload({ catalog, addedCourseCodes, onAddCourse }: Pro
     setLoading(true);
     setMatched([]);
     setUnmatched([]);
+    setTerms([]);
+    setCourseTermMap({});
 
     try {
       const result = await parseTranscriptPdf(file, catalog);
       setMatched(result.matched);
       setUnmatched(result.unmatched);
+      setTerms(result.terms);
+      setCourseTermMap(result.courseTermMap);
     } catch (err) {
       console.error(err);
       setError("Could not read this PDF. It may be scanned/image-only or formatted in a way the parser cannot read yet.");
@@ -40,8 +52,10 @@ export function TranscriptUpload({ catalog, addedCourseCodes, onAddCourse }: Pro
   }
 
   function addAll() {
+    onImportTerms(terms);
+
     for (const course of newMatches) {
-      onAddCourse(course);
+      onAddCourse(course, courseTermMap[course.code], "transcript");
     }
   }
 
@@ -53,7 +67,7 @@ export function TranscriptUpload({ catalog, addedCourseCodes, onAddCourse }: Pro
           Transcript PDF Import
         </h2>
         <p className="mt-1 text-sm text-zinc-400">
-          Upload a machine-readable PDF transcript. Scanned PDFs may not work yet.
+          Upload a machine-readable PDF. If semesters are detected, courses will be grouped by term.
         </p>
       </div>
 
@@ -80,7 +94,7 @@ export function TranscriptUpload({ catalog, addedCourseCodes, onAddCourse }: Pro
         <div className="mt-5 space-y-4">
           <div className="flex items-center justify-between gap-3">
             <div className="text-sm text-zinc-400">
-              {matched.length} matched · {unmatched.length} unmatched · {newMatches.length} new
+              {matched.length} matched · {unmatched.length} unmatched · {terms.length} terms detected
             </div>
 
             <button
@@ -97,6 +111,26 @@ export function TranscriptUpload({ catalog, addedCourseCodes, onAddCourse }: Pro
               Add matched
             </button>
           </div>
+
+          {terms.length > 0 && (
+            <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
+              <div className="mb-3 text-sm font-semibold text-white">Detected semesters</div>
+              <div className="space-y-3">
+                {terms.map((term) => (
+                  <div key={term.id}>
+                    <div className="text-sm font-medium text-zinc-200">{term.name}</div>
+                    <div className="mt-1 flex flex-wrap gap-2">
+                      {term.courseCodes.map((code) => (
+                        <span key={code} className="rounded-full bg-white/10 px-3 py-1 text-xs text-zinc-300">
+                          {code}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="grid gap-4 lg:grid-cols-2">
             <div className="rounded-2xl border border-white/10 bg-black/40 p-4">

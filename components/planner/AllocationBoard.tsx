@@ -112,10 +112,18 @@ export function AllocationBoard({
                 e.preventDefault();
               }}
               onDrop={(e) => {
-                e.preventDefault();
-                if (!draggingEntry || !validDrop) return;
+              e.preventDefault();
+              if (!draggingEntry || !validDrop) return;
+
+              const currentAutoBucket = autoBucketFor(draggingEntry.id, audit);
+
+               if (bucket === currentAutoBucket) {
+                 onMoveEntry(draggingEntry.id, "auto");
+              } else {
                 onMoveEntry(draggingEntry.id, bucket);
-                setDraggingEntryId(null);
+              }
+
+               setDraggingEntryId(null);
               }}
               className={[
                 "min-h-[320px] rounded-[30px] border p-4 transition",

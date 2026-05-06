@@ -14,6 +14,8 @@ export type TranscriptParseResult = {
   extractedCodes: string[];
   terms: TranscriptParsedTerm[];
   courseTermMap: Record<string, string>;
+  transferWarning: boolean;
+  transferWarningReasons: string[];
 };
 
 export async function extractTextFromPdf(file: File): Promise<string> {
@@ -82,7 +84,6 @@ function termIdFromName(name: string) {
 
 function findTermHeaders(text: string) {
   const normalized = text.toUpperCase().replace(/\s+/g, " ");
-
   const termPattern =
     /\b((FALL|SPRING|SUMMER|WINTER)\s+\d{4}|\d{4}\s+(FALL|SPRING|SUMMER|WINTER))\b/g;
 
@@ -118,6 +119,28 @@ function extractCodesFromText(text: string, catalog: CourseRecord[]) {
   return [...found];
 }
 
+export function detectTransferCreditWarning(text: string) {
+  const upper = text.toUpperCase();
+
+  const checks = [
+    { label: "Transfer credit", pattern: /\bTRANSFER\s+(CREDIT|CREDITS|UNITS|WORK)\b/ },
+    { label: "Credits transferred", pattern: /\b(CREDITS|UNITS)\s+TRANSFERRED\b/ },
+    { label: "Test credit", pattern: /\b(TEST|EXAM)\s+CREDIT\b/ },
+    { label: "AP credit", pattern: /\b(AP|ADVANCED\s+PLACEMENT)\b/ },
+    { label: "IB credit", pattern: /\b(IB|INTERNATIONAL\s+BACCALAUREATE)\b/ },
+    { label: "CLEP credit", pattern: /\bCLEP\b/ },
+  ];
+
+  const reasons = checks
+    .filter((check) => check.pattern.test(upper))
+    .map((check) => check.label);
+
+  return {
+    transferWarning: reasons.length > 0,
+    transferWarningReasons: reasons,
+  };
+}
+
 export function extractTranscriptTerms(
   text: string,
   catalog: CourseRecord[],
@@ -131,11 +154,7 @@ export function extractTranscriptTerms(
 
   if (headers.length === 0) {
     const extractedCodes = extractCodesFromText(clean, catalog);
-    return {
-      extractedCodes,
-      terms: [],
-      courseTermMap: {},
-    };
+    return { extractedCodes, terms: [], courseTermMap: {} };
   }
 
   const terms: TranscriptParsedTerm[] = [];
@@ -148,15 +167,16 @@ export function extractTranscriptTerms(
 
     const chunk = clean.slice(current.index, next?.index ?? clean.length);
     const codes = extractCodesFromText(chunk, catalog);
-
     const id = termIdFromName(current.name);
 
     if (codes.length > 0) {
-      terms.push({
-        id,
-        name: current.name,
-        courseCodes: codes,
-      });
+      const existing = terms.find((term) => term.id === id);
+
+      if (existing) {
+        existing.courseCodes = Array.from(new Set([...existing.courseCodes, ...codes]));
+      } else {
+        terms.push({ id, name: current.name, courseCodes: codes });
+      }
 
       for (const code of codes) {
         allCodes.add(code);
@@ -179,6 +199,7 @@ export async function parseTranscriptPdf(
   const rawText = await extractTextFromPdf(file);
   const extracted = extractTranscriptTerms(rawText, catalog);
   const parsed = parseBulkCourseInput(extracted.extractedCodes.join("\n"), catalog);
+  const warning = detectTransferCreditWarning(rawText);
 
   return {
     rawText,
@@ -187,5 +208,7 @@ export async function parseTranscriptPdf(
     unmatched: parsed.unmatched,
     terms: extracted.terms,
     courseTermMap: extracted.courseTermMap,
+    transferWarning: warning.transferWarning,
+    transferWarningReasons: warning.transferWarningReasons,
   };
 }

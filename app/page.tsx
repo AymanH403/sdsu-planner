@@ -100,7 +100,9 @@ export default function Page() {
       const classification = classifyCourse(course);
 
       const newEntry: PlannerEntry = {
-        id: `${course.code}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+        id: `${course.code}-${Date.now()}-${Math.random()
+          .toString(36)
+          .slice(2, 7)}`,
         sourceType,
         code: course.code,
         prefix: course.prefix,
@@ -144,6 +146,21 @@ export default function Page() {
     });
   }
 
+  function deleteTerm(termId: string) {
+    setTerms((prev) => prev.filter((term) => term.id !== termId));
+
+    setEntries((prev) =>
+      prev.map((entry) =>
+        entry.termId === termId
+          ? {
+              ...entry,
+              termId: undefined,
+            }
+          : entry,
+      ),
+    );
+  }
+
   function updateEntryTerm(entryId: string, termId?: string) {
     setEntries((prev) =>
       prev.map((entry) =>
@@ -181,7 +198,10 @@ export default function Page() {
     setEntries((prev) =>
       prev.map((entry) =>
         entry.id === entryId
-          ? { ...entry, manualBucketOverride: bucket === "auto" ? undefined : bucket }
+          ? {
+              ...entry,
+              manualBucketOverride: bucket === "auto" ? undefined : bucket,
+            }
           : entry,
       ),
     );
@@ -189,7 +209,9 @@ export default function Page() {
 
   function updateEntryUnits(entryId: string, units: number) {
     setEntries((prev) =>
-      prev.map((entry) => (entry.id === entryId ? { ...entry, units } : entry)),
+      prev.map((entry) =>
+        entry.id === entryId ? { ...entry, units } : entry,
+      ),
     );
   }
 
@@ -198,20 +220,52 @@ export default function Page() {
       <div className="flex min-h-screen">
         <aside className="hidden w-72 shrink-0 border-r border-white/10 bg-black/70 p-6 xl:block">
           <div className="mb-10">
-            <div className="text-xl font-semibold tracking-tight">CPA Planner</div>
-            <div className="mt-1 text-xs text-zinc-500">SDSU · California audit beta</div>
+            <div className="text-xl font-semibold tracking-tight">
+              CPA Planner
+            </div>
+            <div className="mt-1 text-xs text-zinc-500">
+              SDSU · California audit beta
+            </div>
           </div>
 
           <nav className="space-y-2">
-            <SidebarButton label="Dashboard" icon={LayoutDashboard} active={activeTab === "dashboard"} onClick={() => setActiveTab("dashboard")} />
-            <SidebarButton label="Courses" icon={BookOpen} active={activeTab === "dashboard"} onClick={() => setActiveTab("dashboard")} />
-            <SidebarButton label="Audit" icon={Gauge} active={activeTab === "dashboard"} onClick={() => setActiveTab("dashboard")} />
-            <SidebarButton label="Allocations" icon={ListChecks} active={activeTab === "allocations"} onClick={() => setActiveTab("allocations")} />
-            <SidebarButton label="Settings" icon={Settings2} active={activeTab === "settings"} onClick={() => setActiveTab("settings")} />
+            <SidebarButton
+              label="Dashboard"
+              icon={LayoutDashboard}
+              active={activeTab === "dashboard"}
+              onClick={() => setActiveTab("dashboard")}
+            />
+            <SidebarButton
+              label="Courses"
+              icon={BookOpen}
+              active={activeTab === "dashboard"}
+              onClick={() => setActiveTab("dashboard")}
+            />
+            <SidebarButton
+              label="Audit"
+              icon={Gauge}
+              active={activeTab === "dashboard"}
+              onClick={() => setActiveTab("dashboard")}
+            />
+            <SidebarButton
+              label="Allocations"
+              icon={ListChecks}
+              active={activeTab === "allocations"}
+              onClick={() => setActiveTab("allocations")}
+            />
+            <SidebarButton
+              label="Settings"
+              icon={Settings2}
+              active={activeTab === "settings"}
+              onClick={() => setActiveTab("settings")}
+            />
           </nav>
 
           <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-4">
-            <div className="text-sm font-medium text-white">Selected ruleset</div>
+            <div className="text-sm font-medium text-white">
+              Selected ruleset
+            </div>
+
             <select
               value={rulesetId}
               onChange={(e) => setRulesetId(e.target.value as RulesetId)}
@@ -235,6 +289,7 @@ export default function Page() {
                   ? "Settings"
                   : "Eligibility Dashboard"}
             </h1>
+
             <p className="mt-1 text-sm text-zinc-500">
               {activeTab === "allocations"
                 ? "Manually move courses between eligible buckets."
@@ -288,6 +343,7 @@ export default function Page() {
                   entries={entries}
                   audit={audit}
                   onAddTerm={addManualTerm}
+                  onDeleteTerm={deleteTerm}
                   onUpdateEntryTerm={updateEntryTerm}
                 />
 
@@ -314,7 +370,8 @@ export default function Page() {
               <section className="rounded-[32px] border border-white/10 bg-zinc-950 p-6 shadow-2xl">
                 <h2 className="text-2xl font-semibold">Settings</h2>
                 <p className="mt-2 text-sm text-zinc-400">
-                  Settings page placeholder. Ruleset selection is currently in the sidebar.
+                  Settings page placeholder. Ruleset selection is currently in
+                  the sidebar.
                 </p>
               </section>
             )}

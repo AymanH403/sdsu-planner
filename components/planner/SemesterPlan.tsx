@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Trash2 } from "lucide-react";
 import type {
   AuditResult,
   PlannerEntry,
@@ -13,6 +14,7 @@ type Props = {
   entries: PlannerEntry[];
   audit: AuditResult;
   onAddTerm: (season: string, year: string) => void;
+  onDeleteTerm: (termId: string) => void;
   onUpdateEntryTerm: (entryId: string, termId?: string) => void;
 };
 
@@ -45,6 +47,7 @@ export function SemesterPlan({
   entries,
   audit,
   onAddTerm,
+  onDeleteTerm,
   onUpdateEntryTerm,
 }: Props) {
   const [season, setSeason] = useState("FALL");
@@ -76,7 +79,7 @@ export function SemesterPlan({
             Semester Plan
           </h2>
           <p className="mt-1 text-sm text-zinc-400">
-            Drag course cards between terms. Create new terms manually or import them from a transcript.
+            Drag course cards between terms. Deleting a term moves its courses to Unassigned.
           </p>
         </div>
 
@@ -124,6 +127,7 @@ export function SemesterPlan({
               <TermColumn
                 key={term.id}
                 title={term.name}
+                termId={term.id}
                 units={units}
                 entries={termEntries}
                 audit={audit}
@@ -131,6 +135,7 @@ export function SemesterPlan({
                 setDraggingEntryId={setDraggingEntryId}
                 onDragOver={allowDrop}
                 onDrop={() => handleDrop(term.id)}
+                onDeleteTerm={onDeleteTerm}
               />
             );
           })}
@@ -155,6 +160,7 @@ export function SemesterPlan({
 
 function TermColumn({
   title,
+  termId,
   units,
   entries,
   audit,
@@ -162,8 +168,10 @@ function TermColumn({
   setDraggingEntryId,
   onDragOver,
   onDrop,
+  onDeleteTerm,
 }: {
   title: string;
+  termId?: string;
   units: number;
   entries: PlannerEntry[];
   audit: AuditResult;
@@ -171,6 +179,7 @@ function TermColumn({
   setDraggingEntryId: (id: string | null) => void;
   onDragOver: (e: React.DragEvent) => void;
   onDrop: () => void;
+  onDeleteTerm?: (termId: string) => void;
 }) {
   return (
     <div
@@ -181,10 +190,23 @@ function TermColumn({
         draggingEntryId ? "ring-1 ring-white/20" : "",
       ].join(" ")}
     >
-      <div className="mb-3 flex items-center justify-between">
+      <div className="mb-3 flex items-center justify-between gap-3">
         <div className="font-semibold text-white">{title}</div>
-        <div className="rounded-full bg-white/10 px-3 py-1 text-xs text-zinc-300">
-          {units} units
+
+        <div className="flex items-center gap-2">
+          <div className="rounded-full bg-white/10 px-3 py-1 text-xs text-zinc-300">
+            {units} units
+          </div>
+
+          {termId && onDeleteTerm && (
+            <button
+              onClick={() => onDeleteTerm(termId)}
+              title="Delete term and move courses to Unassigned"
+              className="rounded-xl p-2 text-zinc-500 hover:bg-red-500/20 hover:text-red-200"
+            >
+              <Trash2 className="h-4 w-4" />
+            </button>
+          )}
         </div>
       </div>
 

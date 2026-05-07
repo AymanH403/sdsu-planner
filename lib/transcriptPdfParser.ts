@@ -14,6 +14,7 @@ export type TranscriptParseResult = {
   extractedCodes: string[];
   terms: TranscriptParsedTerm[];
   courseTermMap: Record<string, string>;
+  courseUnitMap: Record<string, number>;
   transferWarning: boolean;
   transferWarningReasons: string[];
 };
@@ -119,6 +120,61 @@ function extractCodesFromText(text: string, catalog: CourseRecord[]) {
   return [...found];
 }
 
+function compactCode(code: string) {
+  return code.toUpperCase().replace(/[^A-Z0-9]/g, "");
+}
+
+function findTranscriptUnitsForCode(text: string, code: string): number | undefined {
+  const compact = compactCode(code);
+  const normalized = text.toUpperCase().replace(/\s+/g, " ");
+
+  const spacedCodePattern = code
+    .toUpperCase()
+    .trim()
+    .split(/\s+/)
+    .map((part) => part.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+    .join("\\s*");
+
+  const pattern = new RegExp(
+    `(?:^|\\s)(${spacedCodePattern})\\s+.{0,120}?\\s+(\\d+\\.\\d)\\s+(\\d+\\.\\d)\\s+[A-Z+-]{0,3}\\s*(\\d+\\.\\d)?`,
+    "g",
+  );
+
+  const match = pattern.exec(normalized);
+
+  if (match?.[2]) {
+    const units = Number(match[2]);
+    if (Number.isFinite(units) && units > 0 && units <= 20) return units;
+  }
+
+  const fallbackPattern = new RegExp(
+    `(?:^|\\s)(${spacedCodePattern})\\s+.{0,100}?\\s+(\\d+\\.\\d)(?=\\s+\\d+\\.\\d|\\s+[A-Z]|\\s+0\\.0)`,
+    "g",
+  );
+
+  const fallback = fallbackPattern.exec(normalized);
+
+  if (fallback?.[2]) {
+    const units = Number(fallback[2]);
+    if (Number.isFinite(units) && units > 0 && units <= 20) return units;
+  }
+
+  return undefined;
+}
+
+function extractUnitMap(text: string, codes: string[]) {
+  const courseUnitMap: Record<string, number> = {};
+
+  for (const code of codes) {
+    const units = findTranscriptUnitsForCode(text, code);
+    if (units !== undefined) {
+      courseUnitMap[code] = units;
+    }
+  }
+
+  return courseUnitMap;
+}
+
 export function detectTransferCreditWarning(text: string) {
   const upper = text.toUpperCase();
 
@@ -200,6 +256,7 @@ export async function parseTranscriptPdf(
   const extracted = extractTranscriptTerms(rawText, catalog);
   const parsed = parseBulkCourseInput(extracted.extractedCodes.join("\n"), catalog);
   const warning = detectTransferCreditWarning(rawText);
+  const courseUnitMap = extractUnitMap(rawText, extracted.extractedCodes);
 
   return {
     rawText,
@@ -208,6 +265,7 @@ export async function parseTranscriptPdf(
     unmatched: parsed.unmatched,
     terms: extracted.terms,
     courseTermMap: extracted.courseTermMap,
+    courseUnitMap,
     transferWarning: warning.transferWarning,
     transferWarningReasons: warning.transferWarningReasons,
   };

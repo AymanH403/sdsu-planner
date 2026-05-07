@@ -21,9 +21,12 @@ function termIdFromName(name: string) {
 function makeEntry(
   course: CourseRecord,
   termId?: string,
-  sourceType: "sdsu" | "transcript" = "sdsu",
+  sourceType: "sdsu" | "transcript" | "manual" = "sdsu",
+  unitOverride?: number,
 ): PlannerEntry {
   const classification = classifyCourse(course);
+  const units =
+    Number.isFinite(unitOverride) && unitOverride ? unitOverride : course.units;
 
   return {
     id: `${course.code}-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
@@ -32,7 +35,7 @@ function makeEntry(
     prefix: course.prefix,
     number: course.number,
     title: course.title,
-    units: course.units,
+    units,
     unitMin: course.unitMin,
     unitMax: course.unitMax,
     variableUnits: course.variableUnits,
@@ -46,18 +49,17 @@ function makeEntry(
 
 export function usePlannerState() {
   const [hydrated, setHydrated] = useState(false);
-
-  const [terms, setTerms] = useState<PlannerTerm[]>([]);
-  const [entries, setEntries] = useState<PlannerEntry[]>([]);
-  const [rulesetId, setRulesetId] = useState<RulesetId>(DEFAULT_RULESET_ID);
+  const [terms, setTermsState] = useState<PlannerTerm[]>([]);
+  const [entries, setEntriesState] = useState<PlannerEntry[]>([]);
+  const [rulesetId, setRulesetIdState] = useState<RulesetId>(DEFAULT_RULESET_ID);
 
   useEffect(() => {
     const snapshot = loadPlanFromStorage();
 
     if (snapshot) {
-      setTerms(snapshot.terms ?? []);
-      setEntries(snapshot.entries ?? []);
-      setRulesetId(snapshot.rulesetId ?? DEFAULT_RULESET_ID);
+      setTermsState(snapshot.terms ?? []);
+      setEntriesState(snapshot.entries ?? []);
+      setRulesetIdState(snapshot.rulesetId ?? DEFAULT_RULESET_ID);
     }
 
     setHydrated(true);
@@ -78,21 +80,53 @@ export function usePlannerState() {
     savePlanToStorage(snapshot);
   }, [hydrated, snapshot]);
 
-  const audit = useMemo(() => auditPlan(entries, rulesetId), [entries, rulesetId]);
+  const audit = useMemo(
+    () => auditPlan(entries, rulesetId),
+    [entries, rulesetId],
+  );
 
   const addedCourseCodes = useMemo(
     () => new Set(entries.map((entry) => entry.code)),
     [entries],
   );
 
+  function persist(nextTerms: PlannerTerm[], nextEntries: PlannerEntry[], nextRulesetId: RulesetId) {
+    savePlanToStorage({
+      version: 2,
+      terms: nextTerms,
+      entries: nextEntries,
+      rulesetId: nextRulesetId,
+    });
+  }
+
+  function setRulesetId(nextRulesetId: RulesetId) {
+    setRulesetIdState(nextRulesetId);
+    persist(terms, entries, nextRulesetId);
+  }
+
+  function setTerms(nextTerms: PlannerTerm[]) {
+    setTermsState(nextTerms);
+    persist(nextTerms, entries, rulesetId);
+  }
+
+  function setEntries(nextEntries: PlannerEntry[]) {
+    setEntriesState(nextEntries);
+    persist(terms, nextEntries, rulesetId);
+  }
+
   function addCourse(
     course: CourseRecord,
     termId?: string,
-    sourceType: "sdsu" | "transcript" = "sdsu",
+    sourceType: "sdsu" | "transcript" | "manual" = "sdsu",
   ) {
-    setEntries((prev) => {
-      if (prev.some((entry) => entry.code === course.code)) return prev;
-      return [makeEntry(course, termId, sourceType), ...prev];
+    setEntriesState((currentEntries) => {
+      if (currentEntries.some((entry) => entry.code === course.code)) {
+        return currentEntries;
+      }
+
+      const nextEntries = [makeEntry(course, termId, sourceType), ...currentEntries];
+      persist(terms, nextEntries, rulesetId);
+      return nextEntries;
     });
   }
 
@@ -100,8 +134,9 @@ export function usePlannerState() {
     courses: CourseRecord[],
     transcriptTerms: TranscriptParsedTerm[],
     courseTermMap: Record<string, string>,
+    courseUnitMap: Record<string, number> = {},
   ) {
-    setTerms((currentTerms) => {
+    setTermsState((currentTerms) => {
       const existingTermIds = new Set(currentTerms.map((term) => term.id));
 
       const newTerms: PlannerTerm[] = transcriptTerms
@@ -114,21 +149,24 @@ export function usePlannerState() {
 
       const mergedTerms = [...currentTerms, ...newTerms];
 
-      setEntries((currentEntries) => {
-        const existingCourseCodes = new Set(currentEntries.map((entry) => entry.code));
+      setEntriesState((currentEntries) => {
+        const existingCourseCodes = new Set(
+          currentEntries.map((entry) => entry.code),
+        );
 
         const newEntries = courses
           .filter((course) => !existingCourseCodes.has(course.code))
-          .map((course) => makeEntry(course, courseTermMap[course.code], "transcript"));
+          .map((course) =>
+            makeEntry(
+              course,
+              courseTermMap[course.code],
+              "transcript",
+              courseUnitMap[course.code],
+            ),
+          );
 
         const mergedEntries = [...newEntries, ...currentEntries];
-
-        savePlanToStorage({
-          version: 2,
-          terms: mergedTerms,
-          entries: mergedEntries,
-          rulesetId,
-        });
+        persist(mergedTerms, mergedEntries, rulesetId);
 
         return mergedEntries;
       });
@@ -143,48 +181,70 @@ export function usePlannerState() {
 
     const id = termIdFromName(name);
 
-    setTerms((prev) => {
-      if (prev.some((term) => term.id === id)) return prev;
-      return [...prev, { id, name, sortOrder: prev.length }];
+    setTermsState((currentTerms) => {
+      if (currentTerms.some((term) => term.id === id)) return currentTerms;
+
+      const nextTerms = [...currentTerms, { id, name, sortOrder: currentTerms.length }];
+      persist(nextTerms, entries, rulesetId);
+      return nextTerms;
     });
   }
 
   function deleteTerm(termId: string) {
-    setTerms((prev) => prev.filter((term) => term.id !== termId));
-
-    setEntries((prev) =>
-      prev.map((entry) =>
-        entry.termId === termId ? { ...entry, termId: undefined } : entry,
-      ),
+    const nextTerms = terms.filter((term) => term.id !== termId);
+    const nextEntries = entries.map((entry) =>
+      entry.termId === termId ? { ...entry, termId: undefined } : entry,
     );
+
+    setTermsState(nextTerms);
+    setEntriesState(nextEntries);
+    persist(nextTerms, nextEntries, rulesetId);
   }
 
   function updateEntryTerm(entryId: string, termId?: string) {
-    setEntries((prev) =>
-      prev.map((entry) =>
+    setEntriesState((currentEntries) => {
+      const nextEntries = currentEntries.map((entry) =>
         entry.id === entryId ? { ...entry, termId: termId || undefined } : entry,
-      ),
-    );
+      );
+
+      persist(terms, nextEntries, rulesetId);
+      return nextEntries;
+    });
   }
 
   function updateEntryUnits(entryId: string, units: number) {
-    setEntries((prev) =>
-      prev.map((entry) => (entry.id === entryId ? { ...entry, units } : entry)),
-    );
+    setEntriesState((currentEntries) => {
+      const nextEntries = currentEntries.map((entry) =>
+        entry.id === entryId ? { ...entry, units } : entry,
+      );
+
+      persist(terms, nextEntries, rulesetId);
+      return nextEntries;
+    });
   }
 
   function removeEntry(entryId: string) {
-    setEntries((prev) => prev.filter((entry) => entry.id !== entryId));
+    setEntriesState((currentEntries) => {
+      const nextEntries = currentEntries.filter((entry) => entry.id !== entryId);
+      persist(terms, nextEntries, rulesetId);
+      return nextEntries;
+    });
   }
 
   function moveEntry(entryId: string, bucket: RequirementBucket | "auto") {
-    setEntries((prev) =>
-      prev.map((entry) =>
+    setEntriesState((currentEntries) => {
+      const nextEntries = currentEntries.map((entry) =>
         entry.id === entryId
-          ? { ...entry, manualBucketOverride: bucket === "auto" ? undefined : bucket }
+          ? {
+              ...entry,
+              manualBucketOverride: bucket === "auto" ? undefined : bucket,
+            }
           : entry,
-      ),
-    );
+      );
+
+      persist(terms, nextEntries, rulesetId);
+      return nextEntries;
+    });
   }
 
   return {

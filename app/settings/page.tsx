@@ -9,7 +9,10 @@ import type { RulesetId } from "@/lib/types";
 
 export default function SettingsPage() {
   const planner = usePlannerState();
-  const [showHistoricalRules, setShowHistoricalRules] = useState(false);
+  const [showHistoricalRules, setShowHistoricalRules] = useState(() => {
+  if (typeof window === "undefined") return false;
+  return window.localStorage.getItem("show-legacy-rules") === "true";
+});
 
   const visibleRulesets = Object.values(RULESETS).filter(
     (ruleset) => showHistoricalRules || ruleset.id === "CA_2027_PLUS",
@@ -46,7 +49,16 @@ export default function SettingsPage() {
             <input
               type="checkbox"
               checked={showHistoricalRules}
-              onChange={(e) => setShowHistoricalRules(e.target.checked)}
+              onChange={(e) => {
+              const checked = e.target.checked;
+
+              setShowHistoricalRules(checked);
+              window.localStorage.setItem("show-legacy-rules", String(checked));
+
+                if (!checked && planner.rulesetId !== "CA_2027_PLUS") {
+                planner.setRulesetId("CA_2027_PLUS");
+              }
+            }}
             />
             Show legacy rules
           </label>

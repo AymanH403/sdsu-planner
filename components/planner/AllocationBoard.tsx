@@ -1,14 +1,9 @@
 import type { AuditResult, PlannerEntry, RequirementBucket } from "@/lib/types";
 
-const BUCKETS: RequirementBucket[] = [
-  "accounting",
-  "business",
-  "ethics",
-  "accounting_study",
-  "general",
-];
-
-const BUCKET_META: Record<RequirementBucket, { label: string; color: string; pill: string }> = {
+const BUCKET_META: Record<
+  RequirementBucket,
+  { label: string; color: string; pill: string }
+> = {
   accounting: {
     label: "Accounting",
     color: "border-red-500/40 bg-red-500/10",
@@ -61,7 +56,6 @@ function effectiveBucket(entry: PlannerEntry, audit: AuditResult): RequirementBu
 function canDrop(entry: PlannerEntry | undefined, bucket: RequirementBucket) {
   if (!entry) return false;
   if (bucket === "general") return true;
-  if (entry.candidateBuckets.length === 0) return false;
   return entry.candidateBuckets.some((candidate) => candidate.bucket === bucket);
 }
 
@@ -74,6 +68,11 @@ export function AllocationBoard({
 }: Props) {
   const draggingEntry = entries.find((entry) => entry.id === draggingEntryId);
 
+  const visibleBuckets = [
+    ...audit.requirements.map((req) => req.bucket),
+    "general" as RequirementBucket,
+  ].filter((bucket, index, arr) => arr.indexOf(bucket) === index);
+
   return (
     <section className="rounded-[36px] border border-white/10 bg-zinc-950/90 p-6 shadow-2xl">
       <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
@@ -85,7 +84,7 @@ export function AllocationBoard({
             Bucket Board
           </h2>
           <p className="mt-1 text-sm text-zinc-400">
-            Auto-assigned first. Drag a card to override, or reset everything back to automatic.
+            Buckets shown here match the selected ruleset.
           </p>
         </div>
 
@@ -97,11 +96,13 @@ export function AllocationBoard({
         </button>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2 2xl:grid-cols-5">
-        {BUCKETS.map((bucket) => {
+      <div className="grid gap-5 md:grid-cols-2 2xl:grid-cols-4">
+        {visibleBuckets.map((bucket) => {
           const meta = BUCKET_META[bucket];
           const validDrop = canDrop(draggingEntry, bucket);
-          const bucketEntries = entries.filter((entry) => effectiveBucket(entry, audit) === bucket);
+          const bucketEntries = entries.filter(
+            (entry) => effectiveBucket(entry, audit) === bucket,
+          );
           const total = bucketEntries.reduce((sum, entry) => sum + entry.units, 0);
 
           return (
@@ -112,18 +113,18 @@ export function AllocationBoard({
                 e.preventDefault();
               }}
               onDrop={(e) => {
-              e.preventDefault();
-              if (!draggingEntry || !validDrop) return;
+                e.preventDefault();
+                if (!draggingEntry || !validDrop) return;
 
-              const currentAutoBucket = autoBucketFor(draggingEntry.id, audit);
+                const currentAutoBucket = autoBucketFor(draggingEntry.id, audit);
 
-               if (bucket === currentAutoBucket) {
-                 onMoveEntry(draggingEntry.id, "auto");
-              } else {
-                onMoveEntry(draggingEntry.id, bucket);
-              }
+                if (bucket === currentAutoBucket) {
+                  onMoveEntry(draggingEntry.id, "auto");
+                } else {
+                  onMoveEntry(draggingEntry.id, bucket);
+                }
 
-               setDraggingEntryId(null);
+                setDraggingEntryId(null);
               }}
               className={[
                 "min-h-[320px] rounded-[30px] border p-4 transition",
@@ -135,8 +136,11 @@ export function AllocationBoard({
               <div className="mb-4 flex items-center justify-between">
                 <div>
                   <h3 className="font-semibold text-white">{meta.label}</h3>
-                  <p className="text-xs text-zinc-400">{bucketEntries.length} courses</p>
+                  <p className="text-xs text-zinc-400">
+                    {bucketEntries.length} courses
+                  </p>
                 </div>
+
                 <div className={`rounded-full px-3 py-1 text-xs font-semibold ${meta.pill}`}>
                   {total}u
                 </div>
@@ -186,8 +190,11 @@ function CourseCard({
       <div className="flex items-start justify-between gap-3">
         <div>
           <div className="font-semibold text-white">{entry.code}</div>
-          <div className="mt-0.5 line-clamp-1 text-xs text-zinc-500">{entry.title}</div>
+          <div className="mt-0.5 line-clamp-1 text-xs text-zinc-500">
+            {entry.title}
+          </div>
         </div>
+
         <div className="rounded-full bg-white/10 px-2 py-0.5 text-xs text-zinc-300">
           {entry.units}u
         </div>

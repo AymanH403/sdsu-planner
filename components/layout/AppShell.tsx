@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, ListChecks, Settings2 } from "lucide-react";
+import {
+  Globe2,
+  LayoutDashboard,
+  ListChecks,
+  Network,
+  Settings2,
+} from "lucide-react";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -21,9 +27,47 @@ export function AppShell({ children }: { children: React.ReactNode }) {
           </div>
 
           <nav className="space-y-2">
-            <NavLink href="/dashboard" label="Dashboard" icon={LayoutDashboard} active={pathname === "/dashboard"} />
-            <NavLink href="/allocations" label="Allocations" icon={ListChecks} active={pathname === "/allocations"} />
-            <NavLink href="/settings" label="Settings" icon={Settings2} active={pathname === "/settings"} />
+            <NavLink
+              href="/dashboard"
+              label="Dashboard"
+              icon={LayoutDashboard}
+              active={pathname === "/dashboard"}
+            />
+
+            <NavLink
+              href="/allocations"
+              label="Allocations"
+              icon={ListChecks}
+              active={pathname === "/allocations"}
+            />
+
+            <NavLink
+              href="/settings"
+              label="Settings"
+              icon={Settings2}
+              active={pathname === "/settings"}
+            />
+
+            <div className="pt-8">
+              <div className="mb-3 px-4 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-600">
+                In development
+              </div>
+
+              <div className="space-y-2">
+                <NavLink
+                  href="/assist"
+                  label="ASSIST Lookup"
+                  icon={Network}
+                  active={pathname === "/assist"}
+                />
+
+                <DisabledRoadmapItem
+                  label="Other Universities"
+                  icon={Globe2}
+                  description="Catalog switching roadmap"
+                />
+              </div>
+            </div>
           </nav>
         </aside>
 
@@ -57,5 +101,25 @@ function NavLink({
       <Icon className="h-4 w-4" />
       {label}
     </Link>
+  );
+}
+
+function DisabledRoadmapItem({
+  label,
+  icon: Icon,
+  description,
+}: {
+  label: string;
+  icon: any;
+  description: string;
+}) {
+  return (
+    <div className="rounded-2xl border border-white/5 px-4 py-3 opacity-45">
+      <div className="flex items-center gap-3 text-sm text-zinc-400">
+        <Icon className="h-4 w-4" />
+        {label}
+      </div>
+      <div className="mt-1 pl-7 text-xs text-zinc-600">{description}</div>
+    </div>
   );
 }

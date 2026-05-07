@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Trash2, X } from "lucide-react";
 import type {
   AuditResult,
@@ -21,6 +21,7 @@ type Props = {
 };
 
 const SEASONS = ["FALL", "SPRING", "SUMMER", "WINTER"];
+
 const SEASON_RANK: Record<string, number> = {
   WINTER: 0,
   SPRING: 1,
@@ -87,7 +88,10 @@ export function SemesterPlan({
   const [unitModalEntries, setUnitModalEntries] = useState<PlannerEntry[]>([]);
 
   const sortedTerms = useMemo(
-    () => [...terms].sort((a, b) => parseTerm(a).sortValue - parseTerm(b).sortValue),
+    () =>
+      [...terms].sort(
+        (a, b) => parseTerm(a).sortValue - parseTerm(b).sortValue,
+      ),
     [terms],
   );
 
@@ -162,13 +166,23 @@ export function SemesterPlan({
 
         <div className="space-y-6">
           {termsByYear.map(([yearLabel, yearTerms]) => (
-            <div key={yearLabel} className="rounded-[28px] border border-white/10 bg-black/25 p-4">
-              <h3 className="mb-4 text-lg font-semibold text-white">{yearLabel}</h3>
+            <div
+              key={yearLabel}
+              className="rounded-[28px] border border-white/10 bg-black/25 p-4"
+            >
+              <h3 className="mb-4 text-lg font-semibold text-white">
+                {yearLabel}
+              </h3>
 
               <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                 {yearTerms.map((term) => {
-                  const termEntries = entries.filter((entry) => entry.termId === term.id);
-                  const units = termEntries.reduce((sum, entry) => sum + entry.units, 0);
+                  const termEntries = entries.filter(
+                    (entry) => entry.termId === term.id,
+                  );
+                  const units = termEntries.reduce(
+                    (sum, entry) => sum + entry.units,
+                    0,
+                  );
                   const { season } = parseTerm(term);
 
                   return (
@@ -194,7 +208,9 @@ export function SemesterPlan({
 
           {unassigned.length > 0 && (
             <div className="rounded-[28px] border border-white/10 bg-black/25 p-4">
-              <h3 className="mb-4 text-lg font-semibold text-white">Unassigned</h3>
+              <h3 className="mb-4 text-lg font-semibold text-white">
+                Unassigned
+              </h3>
 
               <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                 <TermColumn
@@ -222,9 +238,7 @@ export function SemesterPlan({
                 <h3 className="text-2xl font-semibold text-white">
                   Edit Units
                 </h3>
-                <p className="mt-1 text-sm text-zinc-400">
-                  {unitModalTitle}
-                </p>
+                <p className="mt-1 text-sm text-zinc-400">{unitModalTitle}</p>
               </div>
 
               <button
@@ -249,7 +263,9 @@ export function SemesterPlan({
                   >
                     <div>
                       <div className="font-semibold text-white">{entry.code}</div>
-                      <div className="mt-1 text-sm text-zinc-400">{entry.title}</div>
+                      <div className="mt-1 text-sm text-zinc-400">
+                        {entry.title}
+                      </div>
                       <div className="mt-1 text-xs text-zinc-500">
                         {editable
                           ? `Variable units: ${entry.unitMin}-${entry.unitMax}`
@@ -257,20 +273,10 @@ export function SemesterPlan({
                       </div>
                     </div>
 
-                    <input
-                      type="number"
-                      min={entry.unitMin}
-                      max={entry.unitMax}
-                      step={0.5}
-                      value={entry.units}
-                      disabled={!editable}
-                      onChange={(e) => onUpdateUnits(entry.id, Number(e.target.value))}
-                      className={[
-                        "h-11 rounded-2xl border border-white/10 px-3 text-sm outline-none",
-                        editable
-                          ? "bg-black text-white"
-                          : "cursor-not-allowed bg-white/5 text-zinc-500",
-                      ].join(" ")}
+                    <UnitInput
+                      entry={entry}
+                      editable={editable}
+                      onUpdateUnits={onUpdateUnits}
                     />
                   </div>
                 );
@@ -411,7 +417,11 @@ function CourseCard({
           {entry.units}u
         </span>
 
-        <span className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${bucketClass(bucket)}`}>
+        <span
+          className={`rounded-full px-2 py-0.5 text-[11px] font-semibold ${bucketClass(
+            bucket,
+          )}`}
+        >
           {bucket.replace("_", " ")}
         </span>
 
@@ -422,5 +432,52 @@ function CourseCard({
         )}
       </div>
     </div>
+  );
+}
+
+function UnitInput({
+  entry,
+  editable,
+  onUpdateUnits,
+}: {
+  entry: PlannerEntry;
+  editable: boolean;
+  onUpdateUnits: (entryId: string, units: number) => void;
+}) {
+  const [value, setValue] = useState(() => String(entry.units));
+
+  useEffect(() => {
+    setValue(String(entry.units));
+  }, [entry.units]);
+
+  return (
+    <input
+      type="text"
+      inputMode="decimal"
+      value={value}
+      disabled={!editable}
+      onChange={(e) => {
+        const next = e.target.value;
+        setValue(next);
+
+        if (next.trim() === "") return;
+
+        const parsed = Number(next);
+        if (Number.isFinite(parsed)) {
+          onUpdateUnits(entry.id, parsed);
+        }
+      }}
+      onBlur={() => {
+        if (value.trim() === "") {
+          setValue(String(entry.units));
+        }
+      }}
+      className={[
+        "h-11 rounded-2xl border border-white/10 px-3 text-sm outline-none",
+        editable
+          ? "bg-black text-white"
+          : "cursor-not-allowed bg-white/5 text-zinc-500",
+      ].join(" ")}
+    />
   );
 }

@@ -6,6 +6,7 @@ import { AppShell } from "@/components/layout/AppShell";
 import { CourseEntryPanel } from "@/components/courses/CourseEntryPanel";
 import { AuditResults, AuditWarnings } from "@/components/planner/AuditResults";
 import { SemesterPlan } from "@/components/planner/SemesterPlan";
+import { EligibilityReport } from "@/components/report/EligibilityReport";
 import { normalizeCourses } from "@/lib/courses";
 import { usePlannerState } from "@/lib/usePlannerState";
 import type { CourseRecord, RawCourse } from "@/lib/types";
@@ -15,6 +16,7 @@ const SDSU_COURSES: CourseRecord[] = normalizeCourses(coursesData as RawCourse[]
 export default function DashboardPage() {
   const planner = usePlannerState();
   const [auditLogOpen, setAuditLogOpen] = useState(false);
+  const [reportOpen, setReportOpen] = useState(false);
 
   return (
     <AppShell>
@@ -51,12 +53,30 @@ export default function DashboardPage() {
           onRemoveEntry={planner.removeEntry}
         />
 
-        <button
-          onClick={() => setAuditLogOpen(true)}
-          className="fixed bottom-6 right-6 rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black shadow-2xl hover:bg-zinc-200"
-        >
-          View Audit Log
-        </button>
+        <div className="fixed bottom-6 right-6 flex gap-3">
+          <button
+            onClick={() => setReportOpen(true)}
+            className="rounded-2xl bg-emerald-300 px-5 py-3 text-sm font-semibold text-black shadow-2xl hover:bg-emerald-200"
+          >
+            Export Report
+          </button>
+
+          <button
+            onClick={() => setAuditLogOpen(true)}
+            className="rounded-2xl bg-white px-5 py-3 text-sm font-semibold text-black shadow-2xl hover:bg-zinc-200"
+          >
+            View Audit Log
+          </button>
+        </div>
+
+        {reportOpen && (
+          <EligibilityReport
+            audit={planner.audit}
+            entries={planner.entries}
+            terms={planner.terms}
+            onClose={() => setReportOpen(false)}
+          />
+        )}
 
         {auditLogOpen && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-6 backdrop-blur-sm">

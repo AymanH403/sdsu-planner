@@ -5,14 +5,12 @@ export function normalize(text: string) {
 }
 
 export function compactCourseCode(text: string) {
-  return text
-    .toUpperCase()
-    .replace(/[^A-Z0-9]/g, "");
+  return text.toUpperCase().replace(/[^A-Z0-9]/g, "");
 }
 
 export function normalizeCourses(raw: RawCourse[]): CourseRecord[] {
   return raw
-    .map((course) => {
+    .map((course): CourseRecord => {
       const code = (course.code || "").trim();
       const prefix = (course.prefix || code.split(" ")[0] || "").trim();
       const number = (course.number || code.split(" ").slice(1).join(" ") || "").trim();
@@ -20,6 +18,9 @@ export function normalizeCourses(raw: RawCourse[]): CourseRecord[] {
       const units = Number(course.units);
       const unitMin = Number(course.unit_min ?? course.units);
       const unitMax = Number(course.unit_max ?? course.units);
+
+      const status: "active" | "retired" =
+        course.status === "retired" ? "retired" : "active";
 
       return {
         code,
@@ -30,7 +31,7 @@ export function normalizeCourses(raw: RawCourse[]): CourseRecord[] {
         unitMin: Number.isFinite(unitMin) ? unitMin : Number.isFinite(units) ? units : 0,
         unitMax: Number.isFinite(unitMax) ? unitMax : Number.isFinite(units) ? units : 0,
         variableUnits: Boolean(course.variable_units),
-        status: course.status === "retired" ? "retired" : "active",
+        status,
         sourceUrl: course.source_url,
         aliases: Array.isArray(course.aliases) ? course.aliases : [],
         needsDetailReview: Boolean(course.needs_detail_review),

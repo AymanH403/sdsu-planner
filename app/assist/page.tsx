@@ -2,6 +2,7 @@
 
 import { ExternalLink, Lock, Plus, Search } from "lucide-react";
 import { AppShell } from "@/components/layout/AppShell";
+import { openUrl } from "@tauri-apps/plugin-opener";
 
 export default function AssistPage() {
   return (
@@ -32,15 +33,21 @@ export default function AssistPage() {
                 add the SDSU equivalent course in the dashboard.
               </p>
 
-              <a
-                href="https://assist.org"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-4 inline-flex items-center rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-zinc-200"
-              >
+             <button
+               type="button"
+              onClick={async () => {
+              try {
+             await openUrl("https://www.assist.org");
+              } catch (error) {
+            console.error("Failed to open ASSIST:", error);
+            window.location.href = "https://www.assist.org";
+              }
+            }}
+                  className="mt-4 inline-flex items-center rounded-2xl bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-zinc-200"
+                  >
                 Visit ASSIST.org
-                <ExternalLink className="ml-2 h-4 w-4" />
-              </a>
+               <ExternalLink className="ml-2 h-4 w-4" />
+              </button>
             </div>
           </div>
         </section>

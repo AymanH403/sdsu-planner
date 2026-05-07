@@ -3,6 +3,7 @@ import type {
   CourseRecord,
   RequirementBucket,
 } from "./types";
+import { REVIEW_TERMS } from "./constants";
 
 function titleHas(title: string, terms: string[]) {
   const t = title.toLowerCase();
@@ -38,20 +39,7 @@ export function classifyCourse(course: CourseRecord): {
   const prefix = course.prefix.toUpperCase();
   const title = course.title.toLowerCase();
 
-  const reviewTerms = [
-    "experimental topics",
-    "selected topics",
-    "special topics",
-    "special study",
-    "independent study",
-    "research",
-    "internship",
-    "thesis",
-    "project extension",
-    "comprehensive examination extension",
-  ];
-
-  let needsReview = course.needsDetailReview || titleHas(title, reviewTerms);
+  let needsReview = course.needsDetailReview || titleHas(title, REVIEW_TERMS as unknown as string[]);
   let reviewReason = needsReview
     ? "Generic, variable, research, internship, extension, or detail-review course."
     : undefined;

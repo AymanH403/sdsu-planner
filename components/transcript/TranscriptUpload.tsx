@@ -48,6 +48,7 @@ export function TranscriptUpload({
   const [dragging, setDragging] = useState(false);
   const [loading, setLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [draggedCourseCode, setDraggedCourseCode] = useState<string | null>(null);
 
   const [matched, setMatched] = useState<CourseRecord[]>([]);
   const [unmatchedCount, setUnmatchedCount] = useState(0);
@@ -310,62 +311,79 @@ export function TranscriptUpload({
                   No courses matched the SDSU catalog.
                 </div>
               ) : (
-                <div className="space-y-2">
-                  {matched.map((course) => {
-                    const row = reviewRows[course.code];
+                <div className="space-y-6">
+                  {terms.map((term) => {
+                    const coursesInTerm = matched.filter(
+                      (course) => reviewRows[course.code]?.termId === term.id,
+                    );
 
                     return (
-                      <div
-                        key={course.code}
-                        className={[
-                          "grid gap-3 rounded-2xl border border-white/10 p-3 md:grid-cols-[44px_1fr_110px_180px]",
-                          row?.include ? "bg-white/5" : "bg-white/[0.02] opacity-50",
-                        ].join(" ")}
-                      >
-                        <label className="flex items-center justify-center">
-                          <input
-                            type="checkbox"
-                            checked={Boolean(row?.include)}
-                            onChange={(e) =>
-                              updateRow(course.code, { include: e.target.checked })
+                      <div key={term.id}>
+                        <div className="mb-3 font-semibold text-white">{term.name}</div>
+                        <div
+                          onDragOver={(e) => e.preventDefault()}
+                          onDrop={(e) => {
+                            e.preventDefault();
+                            if (draggedCourseCode) {
+                              updateRow(draggedCourseCode, { termId: term.id });
+                              setDraggedCourseCode(null);
                             }
-                          />
-                        </label>
+                          }}
+                          className={[
+                            "rounded-xl border-2 border-dashed p-4 transition-colors",
+                            draggedCourseCode ? "border-emerald-400/50 bg-emerald-400/5" : "border-white/10 bg-white/[0.02]",
+                          ].join(" ")}
+                        >
+                          {coursesInTerm.length === 0 ? (
+                            <div className="text-sm text-zinc-500">No courses</div>
+                          ) : (
+                            <div className="flex flex-wrap gap-3">
+                              {coursesInTerm.map((course) => {
+                                const row = reviewRows[course.code];
 
-                        <div>
-                          <div className="font-semibold text-white">{course.code}</div>
-                          <div className="mt-1 text-sm text-zinc-400">{course.title}</div>
-                          {addedCourseCodes.has(course.code) && (
-                            <div className="mt-1 text-xs text-amber-200">
-                              Already in plan
+                                return (
+                                  <button
+                                    key={course.code}
+                                    draggable
+                                    onDragStart={() => setDraggedCourseCode(course.code)}
+                                    onDragEnd={() => setDraggedCourseCode(null)}
+                                    onClick={() =>
+                                      updateRow(course.code, {
+                                        include: !row?.include,
+                                      })
+                                    }
+                                    className={[
+                                      "relative flex-1 min-w-[180px] max-w-xs rounded-2xl border p-4 transition-all duration-200 cursor-grab active:cursor-grabbing",
+                                      row?.include
+                                        ? "border-emerald-400/50 bg-emerald-400/10 hover:border-emerald-400 hover:bg-emerald-400/15"
+                                        : "border-white/10 bg-white/[0.03] opacity-50 hover:bg-white/5",
+                                    ].join(" ")}
+                                  >
+                                    <div className="text-left">
+                                      <div className="font-semibold text-white">
+                                        {course.code}
+                                      </div>
+                                      <div className="mt-1 line-clamp-2 text-xs text-zinc-400">
+                                        {course.title}
+                                      </div>
+                                      {addedCourseCodes.has(course.code) && (
+                                        <div className="mt-2 text-xs text-amber-200">
+                                          Already in plan
+                                        </div>
+                                      )}
+                                    </div>
+
+                                    <div className="absolute right-3 top-3 h-5 w-5 rounded border border-white/20 bg-black/40 flex items-center justify-center">
+                                      {row?.include && (
+                                        <div className="h-3 w-3 rounded-sm bg-emerald-400" />
+                                      )}
+                                    </div>
+                                  </button>
+                                );
+                              })}
                             </div>
                           )}
                         </div>
-
-                        <input
-                          type="text"
-                          inputMode="decimal"
-                          value={row?.units ?? ""}
-                          onChange={(e) =>
-                            updateRow(course.code, { units: e.target.value })
-                          }
-                          className="h-11 rounded-2xl border border-white/10 bg-black px-3 text-sm text-white outline-none"
-                        />
-
-                        <select
-                          value={row?.termId ?? ""}
-                          onChange={(e) =>
-                            updateRow(course.code, { termId: e.target.value })
-                          }
-                          className="h-11 rounded-2xl border border-white/10 bg-black px-3 text-sm text-white outline-none"
-                        >
-                          <option value="">Unassigned</option>
-                          {terms.map((term) => (
-                            <option key={term.id} value={term.id}>
-                              {term.name}
-                            </option>
-                          ))}
-                        </select>
                       </div>
                     );
                   })}

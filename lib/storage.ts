@@ -1,16 +1,15 @@
-import type { PlanSnapshot } from "./types";
-
-const STORAGE_KEY = "sdsu-planner-auto-audit-v2";
+import type { PlanSnapshot, AuditLogEntry } from "./types";
+import { STORAGE_KEYS } from "./constants";
 
 export function savePlanToStorage(snapshot: PlanSnapshot) {
   if (typeof window === "undefined") return;
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(snapshot));
+  window.localStorage.setItem(STORAGE_KEYS.PLAN, JSON.stringify(snapshot));
 }
 
 export function loadPlanFromStorage(): PlanSnapshot | null {
   if (typeof window === "undefined") return null;
 
-  const raw = window.localStorage.getItem(STORAGE_KEY);
+  const raw = window.localStorage.getItem(STORAGE_KEYS.PLAN);
   if (!raw) return null;
 
   try {
@@ -24,6 +23,25 @@ export function loadPlanFromStorage(): PlanSnapshot | null {
     };
   } catch {
     return null;
+  }
+}
+
+export function saveAuditLogToStorage(log: AuditLogEntry[]) {
+  if (typeof window === "undefined") return;
+  window.localStorage.setItem(STORAGE_KEYS.AUDIT_LOG, JSON.stringify(log));
+}
+
+export function loadAuditLogFromStorage(): AuditLogEntry[] {
+  if (typeof window === "undefined") return [];
+
+  const raw = window.localStorage.getItem(STORAGE_KEYS.AUDIT_LOG);
+  if (!raw) return [];
+
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
   }
 }
 

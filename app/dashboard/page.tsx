@@ -102,50 +102,33 @@ export default function DashboardPage() {
 
 function AuditLog({ audit }: { audit: ReturnType<typeof usePlannerState>["audit"] }) {
   return (
-    <div className="grid gap-4 lg:grid-cols-2">
+    <div>
       <section className="rounded-3xl border border-white/10 bg-zinc-950 p-5">
         <h3 className="mb-4 text-lg font-semibold text-white">
-          Requirement Allocations
+          Allocation Timeline
         </h3>
 
-        {audit.allocations.length === 0 ? (
-          <div className="text-sm text-zinc-500">No CPA-specific allocations yet.</div>
+        {audit.auditLog.length === 0 ? (
+          <div className="text-sm text-zinc-500">No allocations yet.</div>
         ) : (
           <div className="space-y-3">
-            {audit.allocations.map((allocation) => (
+            {[...audit.auditLog].reverse().map((entry) => (
               <div
-                key={`${allocation.entryId}-${allocation.allocatedTo}`}
+                key={entry.timestamp}
                 className="rounded-2xl bg-white/5 p-4"
               >
-                <div className="font-semibold text-white">
-                  {allocation.code} → {allocation.allocatedTo.replace("_", " ")}
-                </div>
-                <div className="mt-1 text-sm text-zinc-400">{allocation.title}</div>
-                <div className="mt-2 text-xs text-zinc-500">
-                  {allocation.units} units · {Math.round(allocation.confidence * 100)}% confidence
-                </div>
-                <div className="mt-2 text-xs text-zinc-500">{allocation.reason}</div>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
-
-      <section className="rounded-3xl border border-white/10 bg-zinc-950 p-5">
-        <h3 className="mb-4 text-lg font-semibold text-white">
-          General / Total-Only Courses
-        </h3>
-
-        {audit.generalCourses.length === 0 ? (
-          <div className="text-sm text-zinc-500">No general courses yet.</div>
-        ) : (
-          <div className="space-y-3">
-            {audit.generalCourses.map((allocation) => (
-              <div key={allocation.entryId} className="rounded-2xl bg-white/5 p-4">
-                <div className="font-semibold text-white">{allocation.code}</div>
-                <div className="mt-1 text-sm text-zinc-400">{allocation.title}</div>
-                <div className="mt-2 text-xs text-zinc-500">
-                  {allocation.units} units · {allocation.reason}
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex-1 min-w-0">
+                    <div className="font-semibold text-white">{entry.code}</div>
+                    <div className="mt-1 text-sm text-zinc-400">{entry.title}</div>
+                    <div className="mt-2 text-xs text-zinc-500">{entry.reason}</div>
+                  </div>
+                  <div className="whitespace-nowrap text-right">
+                    <div className="text-sm font-semibold text-white">{entry.units}u</div>
+                    <div className="mt-2 text-lg font-bold text-white">
+                      {entry.toBucket.replace("_", " ").toUpperCase()}
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}

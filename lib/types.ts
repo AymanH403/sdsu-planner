@@ -82,6 +82,17 @@ export type Allocation = {
   isManualOverride?: boolean;
 };
 
+export type AuditLogEntry = {
+  timestamp: number;
+  code: string;
+  title: string;
+  units: number;
+  fromBucket?: RequirementBucket;
+  toBucket: RequirementBucket;
+  reason: string;
+  isReallocation: boolean;
+};
+
 export type RequirementResult = {
   bucket: RequirementBucket;
   label: string;
@@ -99,6 +110,7 @@ export type AuditResult = {
   requirements: RequirementResult[];
   allocations: Allocation[];
   generalCourses: Allocation[];
+  auditLog: AuditLogEntry[];
   reviewCourses: PlannerEntry[];
   isEligibleEstimate: boolean;
   warnings: string[];

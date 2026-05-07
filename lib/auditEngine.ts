@@ -1,6 +1,7 @@
 import { RULESETS } from "./rulesets";
 import type {
   Allocation,
+  AuditLogEntry,
   AuditResult,
   PlannerEntry,
   RequirementBucket,
@@ -37,6 +38,9 @@ export function auditPlan(entries: PlannerEntry[], rulesetId: RulesetId): AuditR
   const totalUnits = entries.reduce((sum, entry) => sum + entry.units, 0);
   const used = new Set<string>();
   const allocations: Allocation[] = [];
+  const generalCourses: Allocation[] = [];
+  const auditLog: AuditLogEntry[] = [];
+  let logTimestamp = 0;
   const warnings: string[] = [];
 
   const activeBuckets = ruleset.requirements.map((req) => req.bucket);
@@ -51,14 +55,65 @@ export function auditPlan(entries: PlannerEntry[], rulesetId: RulesetId): AuditR
    */
   for (const entry of entries) {
     if (!entry.manualBucketOverride) continue;
-    if (entry.manualBucketOverride === "general") continue;
 
-    const req = ruleset.requirements.find((r) => r.bucket === entry.manualBucketOverride);
-    if (!req) continue;
+    used.add(entry.id);
+
+    if (entry.manualBucketOverride === "general") {
+      generalCourses.push({
+        entryId: entry.id,
+        code: entry.code,
+        title: entry.title,
+        units: entry.units,
+        allocatedTo: "general",
+        confidence: 1,
+        reason: "User manually assigned this course to general units.",
+        isManualOverride: true,
+      });
+
+      auditLog.push({
+        timestamp: logTimestamp++,
+        code: entry.code,
+        title: entry.title,
+        units: entry.units,
+        toBucket: "general",
+        reason: "User manually assigned this course to general units.",
+        isReallocation: false,
+      });
+
+      continue;
+    }
+
+    const req = ruleset.requirements.find(
+      (r) => r.bucket === entry.manualBucketOverride,
+    );
+
+    if (!req) {
+      generalCourses.push({
+        entryId: entry.id,
+        code: entry.code,
+        title: entry.title,
+        units: entry.units,
+        allocatedTo: "general",
+        confidence: 1,
+        reason: "Manual bucket is not active for this ruleset; counted toward general units.",
+        isManualOverride: true,
+      });
+
+      auditLog.push({
+        timestamp: logTimestamp++,
+        code: entry.code,
+        title: entry.title,
+        units: entry.units,
+        toBucket: "general",
+        reason: "Manual bucket is not active for this ruleset; counted toward general units.",
+        isReallocation: false,
+      });
+
+      continue;
+    }
 
     const candidate = candidateFor(entry, entry.manualBucketOverride);
 
-    used.add(entry.id);
     progress[entry.manualBucketOverride] += entry.units;
 
     allocations.push({
@@ -67,17 +122,24 @@ export function auditPlan(entries: PlannerEntry[], rulesetId: RulesetId): AuditR
       title: entry.title,
       units: entry.units,
       allocatedTo: entry.manualBucketOverride,
-      confidence: candidate?.confidence ?? 0.5,
+      confidence: candidate?.confidence ?? 1,
       reason: candidate?.reason ?? "User manually assigned this course.",
       isManualOverride: true,
+    });
+
+    auditLog.push({
+      timestamp: logTimestamp++,
+      code: entry.code,
+      title: entry.title,
+      units: entry.units,
+      toBucket: entry.manualBucketOverride,
+      reason: candidate?.reason ?? "User manually assigned this course.",
+      isReallocation: false,
     });
   }
 
   /**
    * 2. Fill hard requirements bucket by bucket.
-   *
-   * For the current MVP, this is greedy but scarcity-aware.
-   * Later, replace this with real linear/integer optimization.
    */
   for (const req of ruleset.requirements) {
     while (progress[req.bucket] < req.requiredUnits) {
@@ -118,29 +180,49 @@ export function auditPlan(entries: PlannerEntry[], rulesetId: RulesetId): AuditR
         confidence: chosen.candidate.confidence,
         reason: chosen.candidate.reason,
       });
+
+      auditLog.push({
+        timestamp: logTimestamp++,
+        code: chosen.entry.code,
+        title: chosen.entry.title,
+        units: chosen.entry.units,
+        toBucket: req.bucket,
+        reason: chosen.candidate.reason,
+        isReallocation: false,
+      });
     }
   }
 
   /**
    * 3. Everything unused becomes general.
    */
-  const generalCourses: Allocation[] = entries
-    .filter((entry) => !used.has(entry.id))
-    .map((entry) => ({
+  for (const entry of entries.filter((entry) => !used.has(entry.id))) {
+    const reason =
+      entry.candidateBuckets.length === 0
+        ? "No CPA-specific candidate bucket; counted toward total units only."
+        : "Not needed for selected requirements; counted toward total units.";
+
+    auditLog.push({
+      timestamp: logTimestamp++,
+      code: entry.code,
+      title: entry.title,
+      units: entry.units,
+      toBucket: "general",
+      reason,
+      isReallocation: false,
+    });
+
+    generalCourses.push({
       entryId: entry.id,
       code: entry.code,
       title: entry.title,
       units: entry.units,
       allocatedTo: "general",
       confidence: entry.candidateBuckets.length === 0 ? 1 : 0.7,
-      reason:
-        entry.manualBucketOverride === "general"
-          ? "User manually assigned this course to general units."
-          : entry.candidateBuckets.length === 0
-            ? "No CPA-specific candidate bucket; counted toward total units only."
-            : "Not needed for selected requirements; counted toward total units.",
-      isManualOverride: entry.manualBucketOverride === "general",
-    }));
+      reason,
+      isManualOverride: false,
+    });
+  }
 
   const requirements = ruleset.requirements.map((req) => {
     const completed = progress[req.bucket] || 0;
@@ -183,6 +265,7 @@ export function auditPlan(entries: PlannerEntry[], rulesetId: RulesetId): AuditR
     requirements,
     allocations,
     generalCourses,
+    auditLog,
     reviewCourses,
     isEligibleEstimate,
     warnings,

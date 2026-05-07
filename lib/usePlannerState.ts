@@ -4,13 +4,15 @@ import { useEffect, useMemo, useState } from "react";
 import { classifyCourse } from "@/lib/classifier";
 import { auditPlan } from "@/lib/auditEngine";
 import { DEFAULT_RULESET_ID } from "@/lib/rulesets";
-import { loadPlanFromStorage, savePlanToStorage } from "@/lib/storage";
+import { loadPlanFromStorage, savePlanToStorage, loadAuditLogFromStorage, saveAuditLogToStorage } from "@/lib/storage";
+import { ALL_MANUAL_BUCKETS } from "@/lib/constants";
 import type {
   CourseRecord,
   PlannerEntry,
   PlannerTerm,
   RequirementBucket,
   RulesetId,
+  AuditLogEntry,
 } from "@/lib/types";
 import type { TranscriptParsedTerm } from "@/lib/transcriptPdfParser";
 
@@ -25,6 +27,8 @@ function makeEntry(
   unitOverride?: number,
 ): PlannerEntry {
   const classification = classifyCourse(course);
+  const isManual = sourceType === "manual";
+
   const units =
     Number.isFinite(unitOverride) && unitOverride ? unitOverride : course.units;
 
@@ -40,9 +44,17 @@ function makeEntry(
     unitMax: course.unitMax,
     variableUnits: course.variableUnits,
     sourceUrl: course.sourceUrl,
-    candidateBuckets: classification.candidateBuckets,
-    needsReview: classification.needsReview,
-    reviewReason: classification.reviewReason,
+    candidateBuckets: isManual
+      ? ALL_MANUAL_BUCKETS.map((bucket) => ({
+          bucket,
+          confidence: 1,
+          reason: "Manual course: user may assign to any bucket.",
+        }))
+      : classification.candidateBuckets,
+    needsReview: isManual ? true : classification.needsReview,
+    reviewReason: isManual
+      ? "Manual course should be reviewed for CPA eligibility."
+      : classification.reviewReason,
     termId,
   };
 }
@@ -52,9 +64,12 @@ export function usePlannerState() {
   const [terms, setTermsState] = useState<PlannerTerm[]>([]);
   const [entries, setEntriesState] = useState<PlannerEntry[]>([]);
   const [rulesetId, setRulesetIdState] = useState<RulesetId>(DEFAULT_RULESET_ID);
+  const [prevAudit, setPrevAudit] = useState<ReturnType<typeof auditPlan> | null>(null);
+  const [persistedAuditLog, setPersistedAuditLog] = useState<AuditLogEntry[]>([]);
 
   useEffect(() => {
     const snapshot = loadPlanFromStorage();
+    const auditLog = loadAuditLogFromStorage();
 
     if (snapshot) {
       setTermsState(snapshot.terms ?? []);
@@ -62,7 +77,23 @@ export function usePlannerState() {
       setRulesetIdState(snapshot.rulesetId ?? DEFAULT_RULESET_ID);
     }
 
+    setPersistedAuditLog(auditLog);
     setHydrated(true);
+
+    // Listen for storage changes from other tabs/pages
+    const handleStorageChange = () => {
+      const updated = loadPlanFromStorage();
+      const updatedLog = loadAuditLogFromStorage();
+      if (updated) {
+        setTermsState(updated.terms ?? []);
+        setEntriesState(updated.entries ?? []);
+        setRulesetIdState(updated.rulesetId ?? DEFAULT_RULESET_ID);
+      }
+      setPersistedAuditLog(updatedLog);
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
   const snapshot = useMemo(
@@ -84,6 +115,105 @@ export function usePlannerState() {
     () => auditPlan(entries, rulesetId),
     [entries, rulesetId],
   );
+
+  // Track reallocations and persist audit log
+  useEffect(() => {
+    if (!prevAudit) {
+      setPrevAudit(audit);
+      return;
+    }
+
+    const previousAllocMap = new Map<string, string>();
+    const previousGeneralSet = new Set<string>();
+
+    // Build map of previous allocations
+    for (const alloc of prevAudit.allocations) {
+      previousAllocMap.set(alloc.entryId, alloc.allocatedTo);
+    }
+    for (const alloc of prevAudit.generalCourses) {
+      previousGeneralSet.add(alloc.entryId);
+    }
+
+    const newLogEntries: AuditLogEntry[] = [];
+
+    // Detect new allocations
+    for (const alloc of audit.allocations) {
+      const previousBucket = previousAllocMap.get(alloc.entryId);
+      
+      if (!previousBucket && !previousGeneralSet.has(alloc.entryId)) {
+        // New allocation
+        newLogEntries.push({
+          timestamp: persistedAuditLog.length + newLogEntries.length,
+          code: alloc.code,
+          title: alloc.title,
+          units: alloc.units,
+          toBucket: alloc.allocatedTo as RequirementBucket,
+          reason: alloc.reason,
+          isReallocation: false,
+        });
+      } else if (previousBucket && previousBucket !== alloc.allocatedTo) {
+        // Reallocation from one bucket to another
+        newLogEntries.push({
+          timestamp: persistedAuditLog.length + newLogEntries.length,
+          code: alloc.code,
+          title: alloc.title,
+          units: alloc.units,
+          fromBucket: previousBucket as RequirementBucket,
+          toBucket: alloc.allocatedTo as RequirementBucket,
+          reason: `Automatically reassigned to fill ${alloc.allocatedTo.replace("_", " ")} requirements.`,
+          isReallocation: true,
+        });
+      } else if (previousGeneralSet.has(alloc.entryId)) {
+        // From general to specific bucket
+        newLogEntries.push({
+          timestamp: persistedAuditLog.length + newLogEntries.length,
+          code: alloc.code,
+          title: alloc.title,
+          units: alloc.units,
+          fromBucket: "general" as RequirementBucket,
+          toBucket: alloc.allocatedTo as RequirementBucket,
+          reason: `Automatically reassigned to fill ${alloc.allocatedTo.replace("_", " ")} requirements.`,
+          isReallocation: true,
+        });
+      }
+    }
+
+    // Detect moves to general
+    for (const alloc of audit.generalCourses) {
+      const previousBucket = previousAllocMap.get(alloc.entryId);
+      if (previousBucket && previousBucket !== "general") {
+        newLogEntries.push({
+          timestamp: persistedAuditLog.length + newLogEntries.length,
+          code: alloc.code,
+          title: alloc.title,
+          units: alloc.units,
+          fromBucket: previousBucket as RequirementBucket,
+          toBucket: "general" as RequirementBucket,
+          reason: "Moved to general units.",
+          isReallocation: true,
+        });
+      } else if (!previousBucket && !previousGeneralSet.has(alloc.entryId)) {
+        // New course going to general
+        newLogEntries.push({
+          timestamp: persistedAuditLog.length + newLogEntries.length,
+          code: alloc.code,
+          title: alloc.title,
+          units: alloc.units,
+          toBucket: "general" as RequirementBucket,
+          reason: alloc.reason,
+          isReallocation: false,
+        });
+      }
+    }
+
+    if (newLogEntries.length > 0) {
+      const updatedLog = [...persistedAuditLog, ...newLogEntries];
+      setPersistedAuditLog(updatedLog);
+      saveAuditLogToStorage(updatedLog);
+    }
+
+    setPrevAudit(audit);
+  }, [audit, entries, persistedAuditLog]);
 
   const addedCourseCodes = useMemo(
     () => new Set(entries.map((entry) => entry.code)),
@@ -247,6 +377,15 @@ export function usePlannerState() {
     });
   }
 
+  // Merge persisted audit log with current audit
+  const auditWithPersistedLog = useMemo(
+    () => ({
+      ...audit,
+      auditLog: [...persistedAuditLog],
+    }),
+    [audit, persistedAuditLog],
+  );
+
   return {
     hydrated,
     terms,
@@ -256,7 +395,7 @@ export function usePlannerState() {
     setEntries,
     setRulesetId,
     snapshot,
-    audit,
+    audit: auditWithPersistedLog,
     addedCourseCodes,
     addCourse,
     importTranscriptCourses,

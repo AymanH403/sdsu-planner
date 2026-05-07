@@ -8,6 +8,12 @@ import type {
   PlannerTerm,
   RequirementBucket,
 } from "@/lib/types";
+import { SEASONS, SEASON_RANK } from "@/lib/constants";
+import {
+  getBucketBadgeClass,
+  getBucketCardClass,
+} from "@/lib/styleUtils";
+import { autoBucketFor, effectiveBucket, bucketFor } from "@/lib/componentHelpers";
 
 type Props = {
   terms: PlannerTerm[];
@@ -20,15 +26,6 @@ type Props = {
   onRemoveEntry: (entryId: string) => void;
 };
 
-const SEASONS = ["FALL", "SPRING", "SUMMER", "WINTER"];
-
-const SEASON_RANK: Record<string, number> = {
-  WINTER: 0,
-  SPRING: 1,
-  SUMMER: 2,
-  FALL: 3,
-};
-
 function parseTerm(term: PlannerTerm) {
   const [seasonRaw, yearRaw] = term.name.toUpperCase().split(/\s+/);
   const season = seasonRaw || "TERM";
@@ -39,20 +36,6 @@ function parseTerm(term: PlannerTerm) {
     year,
     sortValue: Number(year) * 10 + (SEASON_RANK[season] ?? 9),
   };
-}
-
-function autoBucketFor(entryId: string, audit: AuditResult): RequirementBucket {
-  const allocation = audit.allocations.find((a) => a.entryId === entryId);
-  if (allocation) return allocation.allocatedTo;
-
-  const general = audit.generalCourses.find((a) => a.entryId === entryId);
-  if (general) return "general";
-
-  return "general";
-}
-
-function bucketFor(entry: PlannerEntry, audit: AuditResult): RequirementBucket {
-  return entry.manualBucketOverride ?? autoBucketFor(entry.id, audit);
 }
 
 function bucketClass(bucket: RequirementBucket) {
@@ -336,12 +319,22 @@ function TermColumn({
         <div className="text-sm font-semibold text-white">{title}</div>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={onOpenUnits}
-            className="rounded-full bg-white/10 px-2.5 py-1 text-xs text-zinc-300 hover:bg-white/20 hover:text-white"
-          >
-            {units}u
-          </button>
+          {(() => {
+            const hasVariableUnits = entries.some((e) => e.variableUnits);
+            return (
+              <button
+                onClick={onOpenUnits}
+                className={[
+                  "rounded-full px-3 py-1.5 text-xs font-medium transition-all",
+                  hasVariableUnits
+                    ? "bg-orange-500/20 text-orange-200 hover:bg-orange-500/40 hover:text-orange-100"
+                    : "bg-white/10 text-zinc-300 hover:bg-white/20 hover:text-white",
+                ].join(" ")}
+              >
+                {units} units
+              </button>
+            );
+          })()}
 
           {termId && onDeleteTerm && (
             <button

@@ -83,89 +83,80 @@ export function EligibilityReport({ audit, entries, terms, onClose }: Props) {
           )}
 
           <section className="mt-8">
-            <h2 className="mb-3 text-xl font-bold">Requirement Worksheet</h2>
+            <h2 className="mb-3 text-xl font-bold">Course Breakdown by Bucket</h2>
 
-            <div className="overflow-hidden rounded-2xl border border-zinc-300">
-              <table className="w-full border-collapse text-sm">
-                <thead className="bg-zinc-100">
-                  <tr>
-                    <th className="border-b border-zinc-300 p-3 text-left">Requirement</th>
-                    <th className="border-b border-zinc-300 p-3 text-left">Required</th>
-                    <th className="border-b border-zinc-300 p-3 text-left">Completed</th>
-                    <th className="border-b border-zinc-300 p-3 text-left">Remaining</th>
-                    <th className="border-b border-zinc-300 p-3 text-left">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="border-b border-zinc-200 p-3">Total Units</td>
-                    <td className="border-b border-zinc-200 p-3">{audit.totalUnitsRequired}</td>
-                    <td className="border-b border-zinc-200 p-3">{audit.totalUnits}</td>
-                    <td className="border-b border-zinc-200 p-3">
-                      {Math.max(0, audit.totalUnitsRequired - audit.totalUnits)}
-                    </td>
-                    <td className="border-b border-zinc-200 p-3">
-                      {audit.totalUnits >= audit.totalUnitsRequired ? "Met" : "Incomplete"}
-                    </td>
-                  </tr>
+            <div className="space-y-4">
+              {audit.requirements.map((req) => {
+                const coursesInBucket = entries.filter((entry) => {
+                  const allocation = allocationFor(entry.id, audit);
+                  return allocation?.allocatedTo === req.bucket;
+                });
 
-                  {audit.requirements.map((req) => (
-                    <tr key={req.bucket}>
-                      <td className="border-b border-zinc-200 p-3">{req.label}</td>
-                      <td className="border-b border-zinc-200 p-3">{req.requiredUnits}</td>
-                      <td className="border-b border-zinc-200 p-3">{req.completedUnits}</td>
-                      <td className="border-b border-zinc-200 p-3">{req.remainingUnits}</td>
-                      <td className="border-b border-zinc-200 p-3">
-                        {req.remainingUnits <= 0 ? "Met" : "Incomplete"}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
+                return (
+                  <div key={req.bucket}>
+                    <h3 className="mb-3 text-2xl font-bold">{req.label}</h3>
+                    {coursesInBucket.length === 0 ? (
+                      <div className="text-sm text-zinc-500 italic">No courses</div>
+                    ) : (
+                      <div className="overflow-hidden rounded-2xl border border-zinc-300">
+                        <table className="w-full border-collapse text-sm">
+                          <thead className="bg-zinc-100">
+                            <tr>
+                              <th className="border-b border-zinc-300 p-3 text-left">Course</th>
+                              <th className="border-b border-zinc-300 p-3 text-left">Title</th>
+                              <th className="border-b border-zinc-300 p-3 text-left">Units</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {coursesInBucket.map((entry) => (
+                              <tr key={entry.id}>
+                                <td className="border-b border-zinc-200 p-3 font-semibold">
+                                  {entry.code}
+                                </td>
+                                <td className="border-b border-zinc-200 p-3">{entry.title}</td>
+                                <td className="border-b border-zinc-200 p-3">{entry.units}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
 
-          <section className="mt-8">
-            <h2 className="mb-3 text-xl font-bold">Course Allocation Detail</h2>
-
-            <div className="overflow-hidden rounded-2xl border border-zinc-300">
-              <table className="w-full border-collapse text-sm">
-                <thead className="bg-zinc-100">
-                  <tr>
-                    <th className="border-b border-zinc-300 p-3 text-left">Term</th>
-                    <th className="border-b border-zinc-300 p-3 text-left">Course</th>
-                    <th className="border-b border-zinc-300 p-3 text-left">Title</th>
-                    <th className="border-b border-zinc-300 p-3 text-left">Units</th>
-                    <th className="border-b border-zinc-300 p-3 text-left">Allocated To</th>
-                    <th className="border-b border-zinc-300 p-3 text-left">Notes</th>
-                  </tr>
-                </thead>
-
-                <tbody>
-                  {entries.map((entry) => {
-                    const allocation = allocationFor(entry.id, audit);
-
-                    return (
-                      <tr key={entry.id}>
-                        <td className="border-b border-zinc-200 p-3">
-                          {termNameFor(entry.termId, terms)}
-                        </td>
-                        <td className="border-b border-zinc-200 p-3 font-semibold">{entry.code}</td>
-                        <td className="border-b border-zinc-200 p-3">{entry.title}</td>
-                        <td className="border-b border-zinc-200 p-3">{entry.units}</td>
-                        <td className="border-b border-zinc-200 p-3">
-                          {allocation?.allocatedTo?.replace("_", " ") ?? "General"}
-                        </td>
-                        <td className="border-b border-zinc-200 p-3">
-                          {entry.manualBucketOverride ? "Manual override. " : ""}
-                          {entry.needsReview ? "Needs review. " : ""}
-                          {allocation?.reason ?? ""}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+              <div>
+                <h3 className="mb-3 text-2xl font-bold">General Education</h3>
+                {audit.generalCourses.length === 0 ? (
+                  <div className="text-sm text-zinc-500 italic">No courses</div>
+                ) : (
+                  <div className="overflow-hidden rounded-2xl border border-zinc-300">
+                    <table className="w-full border-collapse text-sm">
+                      <thead className="bg-zinc-100">
+                        <tr>
+                          <th className="border-b border-zinc-300 p-3 text-left">Course</th>
+                          <th className="border-b border-zinc-300 p-3 text-left">Title</th>
+                          <th className="border-b border-zinc-300 p-3 text-left">Units</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {audit.generalCourses.map((allocation) => {
+                          const entry = entries.find((e) => e.id === allocation.entryId);
+                          return entry ? (
+                            <tr key={entry.id}>
+                              <td className="border-b border-zinc-200 p-3 font-semibold">
+                                {entry.code}
+                              </td>
+                              <td className="border-b border-zinc-200 p-3">{entry.title}</td>
+                              <td className="border-b border-zinc-200 p-3 text-lg font-bold">{entry.units}</td>
+                            </tr>
+                          ) : null;
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+              </div>
             </div>
           </section>
 

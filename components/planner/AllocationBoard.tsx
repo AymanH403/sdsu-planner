@@ -1,35 +1,10 @@
 import type { AuditResult, PlannerEntry, RequirementBucket } from "@/lib/types";
-
-const BUCKET_META: Record<
-  RequirementBucket,
-  { label: string; color: string; pill: string }
-> = {
-  accounting: {
-    label: "Accounting",
-    color: "border-red-500/40 bg-red-500/10",
-    pill: "bg-red-500 text-white",
-  },
-  business: {
-    label: "Business",
-    color: "border-blue-500/40 bg-blue-500/10",
-    pill: "bg-blue-500 text-white",
-  },
-  ethics: {
-    label: "Ethics",
-    color: "border-amber-300/40 bg-amber-300/10",
-    pill: "bg-amber-300 text-black",
-  },
-  accounting_study: {
-    label: "Accounting Study",
-    color: "border-purple-500/40 bg-purple-500/10",
-    pill: "bg-purple-500 text-white",
-  },
-  general: {
-    label: "General",
-    color: "border-emerald-300/40 bg-emerald-300/10",
-    pill: "bg-emerald-300 text-black",
-  },
-};
+import { BUCKET_STYLES, getBucketLabel, getBucketCardClass } from "@/lib/styleUtils";
+import {
+  autoBucketFor,
+  effectiveBucket,
+  canDrop,
+} from "@/lib/componentHelpers";
 
 type Props = {
   entries: PlannerEntry[];
@@ -38,26 +13,6 @@ type Props = {
   setDraggingEntryId: (id: string | null) => void;
   onMoveEntry: (entryId: string, bucket: RequirementBucket | "auto") => void;
 };
-
-function autoBucketFor(entryId: string, audit: AuditResult): RequirementBucket {
-  const allocation = audit.allocations.find((a) => a.entryId === entryId);
-  if (allocation) return allocation.allocatedTo;
-
-  const general = audit.generalCourses.find((a) => a.entryId === entryId);
-  if (general) return "general";
-
-  return "general";
-}
-
-function effectiveBucket(entry: PlannerEntry, audit: AuditResult): RequirementBucket {
-  return entry.manualBucketOverride ?? autoBucketFor(entry.id, audit);
-}
-
-function canDrop(entry: PlannerEntry | undefined, bucket: RequirementBucket) {
-  if (!entry) return false;
-  if (bucket === "general") return true;
-  return entry.candidateBuckets.some((candidate) => candidate.bucket === bucket);
-}
 
 export function AllocationBoard({
   entries,
@@ -98,12 +53,17 @@ export function AllocationBoard({
 
       <div className="grid gap-5 md:grid-cols-2 2xl:grid-cols-4">
         {visibleBuckets.map((bucket) => {
-          const meta = BUCKET_META[bucket];
           const validDrop = canDrop(draggingEntry, bucket);
           const bucketEntries = entries.filter(
             (entry) => effectiveBucket(entry, audit) === bucket,
           );
           const total = bucketEntries.reduce((sum, entry) => sum + entry.units, 0);
+          
+          // Get requirement details for this bucket
+          const requirement = audit.requirements.find((req) => req.bucket === bucket);
+          const requiredUnits = requirement?.requiredUnits ?? 0;
+          const percent = requiredUnits > 0 ? (total / requiredUnits) * 100 : 0;
+          const bucketStyles = BUCKET_STYLES[bucket];
 
           return (
             <div
@@ -115,6 +75,14 @@ export function AllocationBoard({
               onDrop={(e) => {
                 e.preventDefault();
                 if (!draggingEntry || !validDrop) return;
+
+                const effectiveBucketNow = effectiveBucket(draggingEntry, audit);
+
+                // If already in this bucket, don't change anything
+                if (effectiveBucketNow === bucket) {
+                  setDraggingEntryId(null);
+                  return;
+                }
 
                 const currentAutoBucket = autoBucketFor(draggingEntry.id, audit);
 
@@ -128,23 +96,36 @@ export function AllocationBoard({
               }}
               className={[
                 "min-h-[320px] rounded-[30px] border p-4 transition",
-                meta.color,
+                getBucketCardClass(bucket),
                 draggingEntry && !validDrop ? "opacity-35 grayscale" : "",
                 draggingEntry && validDrop ? "ring-2 ring-white/40" : "",
               ].join(" ")}
             >
               <div className="mb-4 flex items-center justify-between">
                 <div>
-                  <h3 className="font-semibold text-white">{meta.label}</h3>
+                  <h3 className="font-semibold text-white">{getBucketLabel(bucket)}</h3>
                   <p className="text-xs text-zinc-400">
                     {bucketEntries.length} courses
                   </p>
                 </div>
-
-                <div className={`rounded-full px-3 py-1 text-xs font-semibold ${meta.pill}`}>
-                  {total}u
-                </div>
               </div>
+
+              {requirement && (
+                <div className="mb-4">
+                  <div className="mb-2 flex justify-between text-xs">
+                    <span className="text-zinc-400">Progress</span>
+                  </div>
+                  <div className="relative h-8 overflow-hidden rounded-xl bg-white/10">
+                    <div
+                      className={`absolute inset-y-0 left-0 rounded-xl transition-all ${bucketStyles.badge}`}
+                      style={{ width: `${Math.max(0, Math.min(100, percent))}%` }}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center text-xl font-black tracking-tight text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
+                      {total} / {requiredUnits}
+                    </div>
+                  </div>
+                </div>
+              )}
 
               <div className="space-y-3">
                 {bucketEntries.length === 0 ? (

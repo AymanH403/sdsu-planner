@@ -34,7 +34,7 @@ export default function DashboardPage() {
           <CourseEntryPanel
             catalog={SDSU_COURSES}
             addedCourseCodes={planner.addedCourseCodes}
-            onAddCourse={(course) => planner.addCourse(course, undefined, "manual")}
+            onAddCourse={(course) => planner.addCourse(course, undefined, "sdsu")}
           />
 
           <AuditResults audit={planner.audit} />

@@ -308,7 +308,10 @@ function TermColumn({
 }) {
   return (
     <div
-      onDragOver={(e) => e.preventDefault()}
+      onDragOver={(e) => {
+        e.preventDefault();
+        e.dataTransfer.dropEffect = "move";
+      }}
       onDrop={onDrop}
       className={[
         "min-h-[150px] rounded-3xl border border-white/10 bg-black/45 p-3 transition",
@@ -384,12 +387,17 @@ function CourseCard({
   return (
     <div
       draggable
-      onDragStart={() => setDraggingEntryId(entry.id)}
+      onDragStart={(e) => {
+        e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setData("text/plain", entry.id);
+        setDraggingEntryId(entry.id);
+      }}
       onDragEnd={() => setDraggingEntryId(null)}
       className={[
-        "cursor-grab rounded-2xl border p-3 transition hover:bg-white/10",
+        "cursor-grab select-none rounded-2xl border p-3 transition hover:bg-white/10",
         cardClass(bucket),
       ].join(" ")}
+      style={{ touchAction: "none" }}
     >
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">

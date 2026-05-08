@@ -69,8 +69,9 @@ export function AllocationBoard({
             <div
               key={bucket}
               onDragOver={(e) => {
-                if (!draggingEntry || !validDrop) return;
                 e.preventDefault();
+                if (!draggingEntry || !validDrop) return;
+                e.dataTransfer.dropEffect = "move";
               }}
               onDrop={(e) => {
                 e.preventDefault();
@@ -163,10 +164,15 @@ function CourseCard({
   return (
     <div
       draggable
-      onDragStart={() => setDraggingEntryId(entry.id)}
+      onDragStart={(e) => {
+        e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setData("text/plain", entry.id);
+        setDraggingEntryId(entry.id);
+      }}
       onDragEnd={() => setDraggingEntryId(null)}
       title={entry.title}
-      className="group cursor-grab rounded-2xl border border-white/10 bg-black/70 px-3 py-3 shadow-xl transition hover:-translate-y-0.5 hover:border-white/25 active:cursor-grabbing"
+      className="group cursor-grab select-none rounded-2xl border border-white/10 bg-black/70 px-3 py-3 shadow-xl transition hover:-translate-y-0.5 hover:border-white/25 active:cursor-grabbing"
+      style={{ touchAction: "none" }}
     >
       <div className="flex items-start justify-between gap-3">
         <div>

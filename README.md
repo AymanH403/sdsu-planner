@@ -6,6 +6,8 @@ The app works entirely locally and does not require a backend server. It is buil
 
 > Important: This tool is an unofficial planning aid. It does not replace evaluation by the California Board of Accountancy, an academic advisor, or an official transcript review.
 
+To run, download the .msi file and install the CPA tracker. 
+
 ---
 
 ## Project Goals
